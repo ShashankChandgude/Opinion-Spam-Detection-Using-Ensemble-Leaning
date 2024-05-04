@@ -44,7 +44,8 @@ categorical values, of the classifiers’ hyperparameters, follows:
 • Splitter: best, random.
 • Criterion: gini, entropy.
 3) Random Forest
-• Number of weak classifiers: 100, 500, 1000.
+• Number of weak classifiers: discrete uniform distribution
+over [100, 1000).
 • Max depth: discrete uniform distribution over [3, 5).
 • Criterion: gini, entropy.
 4) K Nearest Neighbors
@@ -56,15 +57,19 @@ categorical values, of the classifiers’ hyperparameters, follows:
 • Fit_prior: True, False.
 6) Support Vector Machine
 • Kernel: RBF, linear, polynomial, sigmoid.
-• C: 0.1, 1, 10, 100, 1000.
-• Degree: 3, 4, 5, 6, 7, 8, 9, 10.
+• C: continuous uniform over [0.1, 1000).
+• Degree: discrete uniform distribution over [3, 10).
 • Gamma (γ): scale, auto. Only considered when the kernel is RBF.
 7) Extreme Gradient Boosting Trees
-• Number of stages: 100, 500, 1000.
+• Number of stages: discrete uniform distribution over
+[100, 1000).
 • Max depth: discrete uniform distribution over [3, 5).
-• Gamma (γ): 0, 1, 5, 10.
-• Learning rate (α): 0.01, 0.1, 0.3, 0.5, 1.
+• Gamma (γ):continuous uniform distribution over
+[0, 10).
+• Learning rate (α): continuous uniform distribution
+over [0.01, 1).
 8) Multilayer Perceptron
+• Maximum iterations: uniformly sampled from the set {600, 800, 1000, 1200}.
 • Hidden layers size: sampled from a discrete uniform distribution over [2, 5). The number of units in each layer is uniformly sampled, once per layer, from {5, 10, 15, 20, 25, 30, 35, 40, 45, 50}.
 • Activation function: ReLU, hyperbolic tangent, logistic sigmoid, identity function.
 
