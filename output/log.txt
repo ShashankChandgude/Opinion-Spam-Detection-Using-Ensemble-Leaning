@@ -1,0 +1,621 @@
+2025-04-04 15:28:33,315 INFO: Starting data cleaning process
+2025-04-04 15:28:33,341 INFO: Rows: 2501 Columns: 32
+2025-04-04 15:28:33,468 INFO: Descriptive statistics (numerical):
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 15:28:33,506 INFO: Descriptive statistics (categorical):
+       ﻿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 15:28:33,522 INFO: Duplicates: 0
+2025-04-04 15:28:33,723 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:28:33,729 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:28:33,799 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 15:28:35,817 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 15:28:37,049 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 15:28:38,453 INFO: Saved cleaned data to d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data\processed\updated_data.csv
+2025-04-04 15:28:38,454 INFO: Data cleaning process completed successfully.
+2025-04-04 15:34:25,081 INFO: Starting preprocessing pipeline
+2025-04-04 15:34:25,360 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 15:34:28,622 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 15:34:30,630 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 15:34:32,513 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 15:34:35,973 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 15:36:42,923 INFO: Starting preprocessing pipeline
+2025-04-04 15:36:43,187 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 15:36:46,264 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 15:36:48,483 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 15:36:50,041 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 15:36:52,925 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 15:36:54,404 INFO: Tokenized review text (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 15:36:54,412 INFO: Saved preprocessed data to d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data\processed\cleaned_data.csv
+2025-04-04 15:36:54,412 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 15:52:31,648 INFO: Starting data cleaning process
+2025-04-04 15:52:32,452 INFO: Rows: 2501 Columns: 32
+2025-04-04 15:52:32,931 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 15:52:32,955 INFO: Categorical stats:
+       ﻿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 15:52:32,978 INFO: Duplicates: 0
+2025-04-04 15:52:33,579 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:52:33,623 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:52:33,779 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 15:52:35,436 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 15:52:36,878 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 15:52:38,094 INFO: Data cleaning process completed successfully.
+2025-04-04 15:52:49,337 INFO: Starting preprocessing pipeline
+2025-04-04 15:52:49,623 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 15:52:51,380 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 15:52:53,239 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 15:52:55,144 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 15:52:58,202 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 15:52:59,406 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 15:52:59,415 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 15:56:36,443 INFO: Starting data cleaning process
+2025-04-04 15:56:36,468 INFO: Rows: 2501 Columns: 32
+2025-04-04 15:56:36,511 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 15:56:36,538 INFO: Categorical stats:
+       ﻿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 15:56:36,550 INFO: Duplicates: 0
+2025-04-04 15:56:36,745 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:56:36,752 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 15:56:36,821 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 15:56:38,481 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 15:56:39,834 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 15:56:41,087 INFO: Data cleaning process completed successfully.
+2025-04-04 15:56:48,695 INFO: Starting preprocessing pipeline
+2025-04-04 15:56:49,015 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 15:56:51,962 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 15:56:53,804 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 15:56:55,258 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 15:56:58,322 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 15:57:00,095 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 15:57:00,106 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 15:58:39,637 INFO: Starting preprocessing pipeline
+2025-04-04 15:58:39,901 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 15:58:42,089 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 15:58:44,001 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 15:58:45,534 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 15:58:48,380 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 15:58:49,543 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 15:58:49,551 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 16:11:14,109 INFO: Starting data cleaning process
+2025-04-04 16:11:15,306 INFO: Rows: 2501 Columns: 32
+2025-04-04 16:11:15,616 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 16:11:15,711 INFO: Categorical stats:
+       ﻿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 16:11:15,748 INFO: Duplicates: 0
+2025-04-04 16:11:16,201 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:11:16,266 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:11:16,441 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 16:11:18,670 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 16:11:18,930 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 16:11:18,991 INFO: Data cleaning process completed successfully.
+2025-04-04 16:14:20,866 INFO: Starting data cleaning process
+2025-04-04 16:14:20,892 INFO: Rows: 2501 Columns: 32
+2025-04-04 16:14:20,910 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 16:14:20,927 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 16:14:20,961 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 16:14:20,975 INFO: Duplicates: 0
+2025-04-04 16:14:21,199 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:14:21,206 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:14:21,289 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 16:14:22,960 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 16:14:23,202 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 16:14:23,232 INFO: Data cleaning process completed successfully.
+2025-04-04 16:17:40,480 INFO: Starting data cleaning process
+2025-04-04 16:17:40,508 INFO: Rows: 2501 Columns: 32
+2025-04-04 16:17:40,530 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 16:17:40,549 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 16:17:40,584 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 16:17:40,603 INFO: Duplicates: 0
+2025-04-04 16:17:40,812 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:17:40,819 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 16:17:40,901 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 16:17:42,737 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 16:17:44,255 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 16:17:45,501 INFO: Data cleaning process completed successfully.
+2025-04-04 16:17:56,379 INFO: Starting preprocessing pipeline
+2025-04-04 16:17:56,743 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 16:17:58,488 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 16:18:00,378 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 16:18:02,398 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 16:18:04,165 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 16:18:04,466 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 16:18:04,480 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 16:18:18,750 INFO: Starting preprocessing pipeline
+2025-04-04 16:18:19,017 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 16:18:20,887 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 16:18:22,734 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 16:18:24,187 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 16:18:25,705 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 16:18:25,915 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 16:18:25,927 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 16:23:15,538 INFO: Starting preprocessing pipeline
+2025-04-04 16:23:16,829 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 16:23:19,374 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 16:23:21,952 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 16:23:23,924 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 16:23:27,641 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 16:23:29,180 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 16:23:29,240 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 16:40:18,333 INFO: Starting model training process
+2025-04-04 16:43:16,554 INFO: Starting model training process
+2025-04-04 17:56:11,412 INFO: Starting model training process
+2025-04-04 22:10:07,777 INFO: Starting data cleaning process
+2025-04-04 22:10:07,921 INFO: Rows: 2501 Columns: 32
+2025-04-04 22:10:08,114 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 22:10:08,149 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 22:10:08,175 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 22:10:08,197 INFO: Duplicates: 0
+2025-04-04 22:10:08,732 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 22:10:08,780 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 22:10:08,914 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 22:10:10,996 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 22:10:12,877 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 22:10:14,074 INFO: Data cleaning process completed successfully.
+2025-04-04 22:10:14,075 INFO: Starting preprocessing pipeline
+2025-04-04 22:10:14,306 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 22:10:15,588 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 22:10:17,491 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 22:10:19,168 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 22:10:21,626 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 22:10:23,292 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 22:10:23,303 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 22:13:07,592 INFO: Starting data cleaning process
+2025-04-04 22:13:07,620 INFO: Rows: 2501 Columns: 32
+2025-04-04 22:13:07,636 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 22:13:07,652 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 22:13:07,677 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 22:13:07,688 INFO: Duplicates: 0
+2025-04-04 22:13:07,874 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 22:13:07,880 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 22:13:07,943 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 22:13:10,947 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 22:13:12,400 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 22:13:13,675 INFO: Data cleaning process completed successfully.
+2025-04-04 22:13:13,677 INFO: Starting preprocessing pipeline
+2025-04-04 22:13:13,950 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 22:13:15,027 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 22:13:16,886 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 22:13:18,087 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 22:13:20,745 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 22:13:22,393 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 22:13:22,401 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 23:36:55,161 INFO: Starting data cleaning process
+2025-04-04 23:36:55,294 INFO: Rows: 2501 Columns: 32
+2025-04-04 23:36:55,453 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 23:36:55,493 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 23:36:55,519 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 23:36:55,544 INFO: Duplicates: 0
+2025-04-04 23:36:55,979 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 23:36:56,031 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 23:36:56,126 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 23:36:58,306 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 23:36:59,429 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 23:37:00,470 INFO: Data cleaning process completed successfully.
+2025-04-04 23:37:00,472 INFO: Starting preprocessing pipeline
+2025-04-04 23:37:00,769 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 23:37:01,719 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 23:37:03,136 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 23:37:05,113 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 23:37:08,066 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 23:37:09,856 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 23:37:09,864 INFO: Preprocessing pipeline completed successfully.
+2025-04-04 23:45:35,205 INFO: Starting data cleaning process
+2025-04-04 23:45:35,313 INFO: Rows: 2501 Columns: 32
+2025-04-04 23:45:35,341 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-04 23:45:35,357 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-04 23:45:35,385 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-04 23:45:35,395 INFO: Duplicates: 0
+2025-04-04 23:45:35,683 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 23:45:35,689 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-04 23:45:35,756 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-04 23:45:37,622 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-04 23:45:37,946 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-04 23:45:37,979 INFO: Data cleaning process completed successfully.
+2025-04-04 23:45:37,985 INFO: Starting preprocessing pipeline
+2025-04-04 23:45:38,186 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-04 23:45:38,367 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-04 23:45:38,859 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-04 23:45:40,096 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-04 23:45:41,389 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-04 23:45:41,761 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-04 23:45:41,767 INFO: Preprocessing pipeline completed successfully.
+2025-04-05 00:10:47,491 INFO: Starting data cleaning process
+2025-04-05 00:10:47,659 INFO: Rows: 2501 Columns: 32
+2025-04-05 00:10:47,762 INFO: Head:
+  ï»¿report_date online_store           upc retailer_product_code          brand       category sub_category                                                product_description review_date  review_rating                                            review_title                                                                                                                                                                                                 review_text  is_competitor     manufacturer market  matched_keywords  time_of_publication                                                                                                         url review_type parent_review  manufacturers_response dimension1                                         dimension2                           dimension3  dimension4  dimension5  dimension6                           dimension7        dimension8  verified_purchase  helpful_review_count                        review_hash_id
+0     02-01-2019  FRESHAMAZON  8.718110e+12            B0142CI6FC  Dove Men+Care  Personal Care         Deos  Dove Men+Care Extra Fresh Anti-perspirant Deodorant Aerosol 250ml  01-01-2019              5                                Dove Menâs + Deodorant  As you get older, you know what you like and what is suitable for your body. I like all Dove products. Gives you that fresh all over, wide awake feeling and no dandruff or flakey skin. No smelly a/pits!              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/REVTAVYK1SJMZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B0142CI6FC     Organic         Child                     NaN       Deos                     Male Anti-Perspirant Deodorant  COTC Male Anti-Perspirant Deodorant         NaN         NaN         NaN  COTC Male Anti-Perspirant Deodorant  Core of the Core               True                     0  3f129b02-ea76-0323-bd59-235d97a4f83f
+1     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              5                              Great for a marmite lover!                             Three gigantic marmite jars that will last probably a whole life! What else would you possibly wish for? Order came in time, when mentioned, safely packed. Very happy with it.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R1K8CMKRJ8N9LC/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  d7f3b9aa-e8b3-626d-683b-374e201c8315
+2     03-01-2019  FRESHAMAZON  5.000180e+12            B014DFNNRY        Marmite          Foods      Savoury                                 Marmite  Spread Yeast Extract 500g  02-01-2019              4                                            Vitamin B12.                                                                                                                                                                                                   Excellent              0  Unilever Global     UK               NaN                  NaN    http://www.amazon.co.uk/gp/customer-reviews/RDKAJKUFQRZZ/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFNNRY     Organic         Child                     NaN    Savoury                                 COTC Yeast Extract                   COTC Yeast Extract         NaN         NaN         NaN                   COTC Yeast Extract  Core of the Core               True                     0  e58a523d-0155-a366-f107-7ac6817ac3b7
+3     03-01-2019  FRESHAMAZON  8.712570e+12            B014DFKELC          Knorr          Foods      Savoury                                      Knorr  Beef Stock Pot 8 x 28g  02-01-2019              5  A Very Handy Flavour Top - Up to Keep In The Cupboard.                                                                                                                                                                  A great flavour top - up for slow cooking.              0  Unilever Global     UK               NaN                  NaN  http://www.amazon.co.uk/gp/customer-reviews/R23R4UB57ML2PI/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014DFKELC     Organic        Parent                     NaN    Savoury  Beef Stock/Pots/Cubes/Extract/Liquid/Concentrated                           Stock Pots         NaN         NaN         NaN                           Stock Pots  Core of the Core               True                     0  aaa9bb87-4f99-bb89-65cb-3b400ebb45c0
+4     03-01-2019  FRESHAMAZON  8.717160e+12            B014G37I7E            Cif       Homecare          HHC                                   Cif Citrus Bathroom Mousse 500ml  02-01-2019              5                                              Very handy                                                                                                                                                                                   Does what is says it does              0  Unilever Global     UK               NaN                  NaN   http://www.amazon.co.uk/gp/customer-reviews/RJ16077YDXIB0/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&ASIN=B014G37I7E     Organic        Parent                     NaN        HHC                                    Bathroom Mousse                      Bathroom Mousse         NaN         NaN         NaN                                  NaN  Core of the Core              False                     0  48c71b34-d7fe-5e90-51dd-239e153fb0ae
+2025-04-05 00:10:47,809 INFO: Numerical stats:
+                upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+count  2.501000e+03    2501.000000         2501.0               0.0                  0.0                     0.0         0.0         0.0         0.0           2501.000000
+mean   7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+std    2.108171e+12       1.108595            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.953930
+min    4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+25%    8.710450e+12       4.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+50%    8.710450e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+75%    8.712560e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max    8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-04-05 00:10:47,834 INFO: Categorical stats:
+       ï»¿report_date online_store retailer_product_code    brand       category sub_category                                    product_description review_date review_title review_text     manufacturer market                                                                                                               url review_type parent_review dimension1               dimension2               dimension3                 dimension7        dimension8                        review_hash_id
+count            2501         2501                  2501     2501           2501         2501                                                   2501        2501         2396        2501             2501   2501                                                                                                              1654        2501          2501       2501                     2501                     2310                       2499              2501                                  2501
+unique            133            9                   367       35              4           16                                                    219         144         1243        1622                1      1                                                                                                              1571           2             2         16                      106                       94                         15                 1                                  2501
+top        26-05-2019       AMAZON            B077YLQ2R1  Comfort  Personal Care      Laundry  Simple x Little Mix Micellar Cleansing Wipes 25 wipes  19-02-2019  Great value        Good  Unilever Global     UK  https://www.sainsburys.co.uk/shop/gb/groceries/shower-12632-44/simple-shower-refreshing-shower-gel-250ml#reviews     Organic        Parent    Laundry  COTC Fabric Conditioner  COTC Fabric Conditioner  Retailer Core of the Core  Core of the Core  dec726f8-aca6-ce30-217b-ed3770660abb
+freq              217         1102                    97      480           1182          993                                                    108          70           48          25             2501   2501                                                                                                                52        1936          1800        993                      326                      276                       1281              2501                                     1
+2025-04-05 00:10:47,867 INFO: Duplicates: 0
+2025-04-05 00:10:48,313 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-05 00:10:48,356 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-04-05 00:10:48,467 INFO: Saved plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-04-05 00:10:51,181 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-04-05 00:10:51,392 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-04-05 00:10:51,430 INFO: Data cleaning process completed successfully.
+2025-04-05 00:10:51,431 INFO: Starting preprocessing pipeline
+2025-04-05 00:10:51,644 INFO: Saved verified purchase distribution plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-04-05 00:10:51,829 INFO: Saved review length comparison plot: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-04-05 00:10:52,295 INFO: Rare words:
+unavail         1
+tab             1
+bk              1
+gem             1
+vaul            1
+surprisingli    1
+frizz           1
+hellmann        1
+lamin           1
+bounc           1
+2025-04-05 00:10:53,878 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-04-05 00:10:55,305 INFO: Saved wordcloud: d:\Study material\Masters UH\Spring 2024\ML\Project\Git repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-04-05 00:10:55,490 INFO: Tokenized (first 5):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-04-05 00:10:55,496 INFO: Preprocessing pipeline completed successfully.
