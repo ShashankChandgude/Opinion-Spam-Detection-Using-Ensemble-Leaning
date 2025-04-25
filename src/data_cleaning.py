@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from src.utils import os, pd, plt, sns, logging, get_project_root, configure_logging, plot_verified_purchase_distribution, plot_review_length_comparison
+from src.utils import os, pd, plt, sns, get_project_root, plot_verified_purchase_distribution, plot_review_length_comparison
 from src.data_io import load_csv_file, write_csv_file
+from src.logging import logging, configure_logging
 
 sns.set_theme()
 
@@ -48,7 +49,6 @@ def plot_helpful_review_counts(data: pd.DataFrame) -> None:
     path = os.path.join(plots_dir, "helpful_review_counts.png")
     plt.savefig(path)
     logging.info("Saved plot: %s", path)
-    plt.show()
     plt.close()
 
 def clean_pipeline(data: pd.DataFrame) -> pd.DataFrame:

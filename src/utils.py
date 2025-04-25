@@ -1,7 +1,5 @@
 import os
 import warnings
-import logging
-import sys
 import nltk
 import seaborn as sns
 import pandas as pd
@@ -14,6 +12,7 @@ from textblob import TextBlob
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
+from src.logging import logging, configure_logging
 
 sns.set_theme(style="darkgrid")
 warnings.simplefilter("ignore")
@@ -25,19 +24,6 @@ nltk.download('punkt_tab', quiet=True)
 def get_project_root() -> str:
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def configure_logging(log_file_path: str) -> None:
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s %(levelname)s: %(message)s',
-        handlers=[
-            logging.FileHandler(log_file_path, encoding='utf-8'),
-            logging.StreamHandler()
-        ]
-    )
 
 def plot_verified_purchase_distribution(data: pd.DataFrame, out_folder: str, filename: str) -> None:
     plt.figure(figsize=(4, 4))

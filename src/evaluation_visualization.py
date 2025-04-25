@@ -12,7 +12,6 @@ def plot_error_curves(train_errors: dict, test_errors: dict) -> None:
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
 
 def create_results_dataframe(results_dict: dict) -> pd.DataFrame:
     df = pd.DataFrame(results_dict).T

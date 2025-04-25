@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from src.utils import os, re, string, logging, pd, plt, sns, nltk, get_project_root, configure_logging, WordCloud, TextBlob, stopwords, word_tokenize, PorterStemmer, plot_verified_purchase_distribution, plot_review_length_comparison
+from src.utils import os, re, string, pd, plt, sns, nltk, get_project_root, WordCloud, TextBlob, stopwords, word_tokenize, PorterStemmer, plot_verified_purchase_distribution, plot_review_length_comparison
 from src.data_io import load_csv_file, write_csv_file
+from src.logging import logging, configure_logging
 
 sns.set_theme(style="darkgrid")
 STOPWORDS = set(stopwords.words('english'))
