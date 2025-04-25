@@ -20,6 +20,7 @@ def fix_column_names(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 def update_categories(data: pd.DataFrame) -> pd.DataFrame:
+    data['category'] = data['category'].astype(object)
     data.loc[data.sub_category == "Ice Cream", "category"] = "Refreshment"
     data.loc[data.sub_category == "HHC", "sub_category"] = "Household Care"
     data.loc[data.sub_category == "Deos", "sub_category"] = "Deodorants & Fragrances"
