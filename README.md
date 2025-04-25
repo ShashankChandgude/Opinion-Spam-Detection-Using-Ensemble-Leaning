@@ -76,3 +76,7 @@ The project is organized into distinct modules that adhere to SOLID principles:
    Run the main pipeline with:
    ```bash
    python main.py
+
+## Code Coverage
+
+[![Coverage Status](https://coveralls.io/repos/github/ShashankChandgude/Opinion-Spam-Detection-Using-Ensemble-Leaning/badge.svg?branch=main)](https://coveralls.io/github/ShashankChandgude/Opinion-Spam-Detection-Using-Ensemble-Leaning?branch=main)
