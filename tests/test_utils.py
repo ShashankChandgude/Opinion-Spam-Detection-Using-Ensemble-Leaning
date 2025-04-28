@@ -5,10 +5,14 @@ import logging
 import matplotlib.pyplot as plt
 import src.utils as utils
 
+# get_project_root
+
 def test_get_project_root_contains_src():
     root = utils.get_project_root()
     assert os.path.isdir(root)
     assert os.path.isdir(os.path.join(root, 'src'))
+
+# plot_verified_purchase_distribution
 
 def test_plot_verified_purchase_distribution_saves_and_logs(tmp_path, monkeypatch, caplog):
     data = pd.DataFrame({'verified_purchase': [True, False, True]})
@@ -23,6 +27,8 @@ def test_plot_verified_purchase_distribution_saves_and_logs(tmp_path, monkeypatc
     expected = os.path.join(str(out_dir), filename)
     assert saved and saved[0] == expected
     assert f"Saved verified purchase distribution plot: {expected}" in caplog.text
+
+# plot_review_length_comparison
 
 def test_plot_review_length_comparison_saves_and_logs(tmp_path, monkeypatch, caplog):
     df = pd.DataFrame({
