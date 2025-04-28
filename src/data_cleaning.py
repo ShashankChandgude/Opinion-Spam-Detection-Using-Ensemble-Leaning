@@ -81,4 +81,4 @@ def pipeline():
     logging.info("Data cleaning process completed successfully.")
 
 if __name__ == "__main__":
-    pipeline()
+    pipeline()  # pragma: no cover

@@ -103,4 +103,4 @@ def pipeline() -> None:
     logging.info("Preprocessing pipeline completed successfully.")
 
 if __name__ == "__main__":
-    pipeline()
+    pipeline() # pragma: no cover
