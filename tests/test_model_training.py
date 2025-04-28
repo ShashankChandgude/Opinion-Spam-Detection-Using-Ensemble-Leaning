@@ -1,37 +1,35 @@
-# tests/test_model_training.py
-
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from src.model_training import train_bagging_ensemble, train_stacking_ensemble, train_all_ensembles
 
+def check_predictions(model, X, y):
+    preds = model.predict(X)
+    assert preds.shape == y.shape, "Prediction shape mismatch."
+    assert set(preds).issubset({0, 1}), "Predicted labels should be 0 or 1."
 
 def test_train_bagging_ensemble_predicts_labels():
     X = np.arange(6).reshape(-1,1)
     y = np.array([0,1,0,1,0,1])
     bag = train_bagging_ensemble('Decision Tree', DecisionTreeClassifier, {}, X, y)
-    preds = bag.predict(X)
-    assert preds.shape == y.shape and set(preds).issubset({0,1})
-
+    check_predictions(bag, X, y)
 
 def test_train_stacking_ensemble_predicts_labels():
     X = np.arange(10).reshape(-1,1)
     y = np.array([0]*5 + [1]*5)
     stack = train_stacking_ensemble({'lr': LogisticRegression()}, X, y, meta_estimator=DecisionTreeClassifier())
-    preds = stack.predict(X)
-    assert preds.shape == y.shape and set(preds).issubset({0,1})
-
+    check_predictions(stack, X, y)
 
 def test_train_all_ensembles_returns_models():
     X = np.arange(10).reshape(-1,1)
     y = np.array([0]*5 + [1]*5)
     bag, stack = train_all_ensembles({'A': DecisionTreeClassifier()}, {'A': {}}, X, y, {'A': DecisionTreeClassifier()})
-    assert 'A' in bag and hasattr(stack, 'predict')
-    assert bag['A'].predict(X).shape == y.shape and stack.predict(X).shape == y.shape
-
+    # Verify that ensemble dictionaries and stacking model behave correctly.
+    assert 'A' in bag
+    check_predictions(bag['A'], X, y)
+    check_predictions(stack, X, y)
 
 def test_svm_bagging_sets_probability_true():
-    import numpy as np
     class FakeSVC:
         def __init__(self, **kwargs): self.params = kwargs
         def fit(self, X, y): return self

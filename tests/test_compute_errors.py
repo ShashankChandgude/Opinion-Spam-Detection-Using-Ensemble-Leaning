@@ -7,7 +7,6 @@ class DummyModel:
     def score(self, X, y): 
         return self._score
 
-# shared dummy data
 X_train = X_test = y_train = y_test = object()
 
 def _check(best_models, bagging, exp_train, exp_test):
