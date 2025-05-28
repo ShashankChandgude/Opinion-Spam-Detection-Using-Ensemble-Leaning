@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 import pytest
-import src.hyperparameter_optimization as hp
+import src.training.hyperparameter_optimization as hp
 
 
 def test_optimize_hyperparameters_returns_model_and_params():

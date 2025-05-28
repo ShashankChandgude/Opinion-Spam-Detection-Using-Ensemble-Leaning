@@ -1,5 +1,5 @@
+from src.evaluation.compute_errors import compute_errors
 import pytest
-from src.compute_errors import compute_errors
 
 class DummyModel:
     def __init__(self, score): 

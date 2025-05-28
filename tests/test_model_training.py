@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
-from src.model_training import train_bagging_ensemble, train_stacking_ensemble, train_all_ensembles
+from src.training.model_training import train_bagging_ensemble, train_stacking_ensemble, train_all_ensembles
 
 def check_predictions(model, X, y):
     preds = model.predict(X)

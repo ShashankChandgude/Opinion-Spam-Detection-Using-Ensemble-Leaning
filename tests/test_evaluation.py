@@ -1,5 +1,5 @@
 import pytest
-from src.evaluation import evaluate_model, evaluate_models
+from src.evaluation.evaluation import evaluate_model, evaluate_models
 
 class StubClassifier:
     def __init__(self, predictions):

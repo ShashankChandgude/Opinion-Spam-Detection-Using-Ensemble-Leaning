@@ -1,5 +1,5 @@
 import pandas as pd
-from src.data_io import load_csv_file, write_csv_file
+from src.data.data_io import load_csv_file, write_csv_file
 
 def test_loads_dataframe_from_csv(tmp_path):
     dataframe = pd.DataFrame({'number': [1, 2], 'letter': list('xy')})

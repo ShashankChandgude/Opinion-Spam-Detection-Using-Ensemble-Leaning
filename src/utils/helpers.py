@@ -12,7 +12,7 @@ from textblob import TextBlob
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-from src.logging import logging, configure_logging
+from src.utils.logging import logging, configure_logging
 
 sns.set_theme(style="darkgrid")
 warnings.simplefilter("ignore")
@@ -22,7 +22,7 @@ nltk.download('stopwords', quiet=True)
 nltk.download('punkt_tab', quiet=True)
 
 def get_project_root() -> str:
-    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def plot_verified_purchase_distribution(data: pd.DataFrame, out_folder: str, filename: str) -> None:

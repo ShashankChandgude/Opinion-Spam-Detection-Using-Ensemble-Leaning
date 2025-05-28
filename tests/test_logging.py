@@ -1,7 +1,7 @@
 import logging
 import sys
 import pytest
-from src.logging import configure_logging
+from src.utils.logging import configure_logging
 
 def teardown_function(function):
     logging.root.handlers.clear()

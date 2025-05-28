@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-import src.vectorization as vz
+import src.features.vectorization as vz
 
 
 def test_count_vectorizer_splits():

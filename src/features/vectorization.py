@@ -1,7 +1,7 @@
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.model_selection import train_test_split
-from src.data_io import load_csv_file
-from src.utils import get_project_root
+from src.data.data_io import load_csv_file
+from src.utils.helpers import get_project_root
 import os
 
 def vectorize_train_test(X_train, X_test, vectorizer_type="count"):

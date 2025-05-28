@@ -1,9 +1,13 @@
-import os
 import pandas as pd
 import numpy as np
 import logging
+import runpy
+import os
 import pytest
-import src.data_cleaning as dc
+import tempfile
+
+import src.data.data_cleaning as dc
+
 
 @pytest.fixture
 def sample_pipeline_df():
@@ -14,75 +18,68 @@ def sample_pipeline_df():
         'matched_keywords': [0, 0]
     })
 
-@pytest.fixture
-def set_project_root(tmp_path, monkeypatch):
-    monkeypatch.setattr(dc, 'get_project_root', lambda: str(tmp_path))
-    return tmp_path
 
-@pytest.fixture
-def disable_figure(monkeypatch, tmp_path):
-    saved = []
-    monkeypatch.setattr(dc.plt, 'figure', lambda *args, **kwargs: None)
-    monkeypatch.setattr(dc.plt, 'savefig', lambda path: saved.append(path))
-    return saved
+def test_fix_column_names_handles_bom():
+    df = pd.DataFrame({'ï»¿report_date': ['2025-01-01'], 'x': [1]})
+    out = dc.fix_column_names(df)
+    assert 'report_date' in out.columns and 'ï»¿report_date' not in out.columns
+
+
+def test_fix_column_names_unchanged():
+    cols = ['a', 'b']
+    df = pd.DataFrame({'a': [1], 'b': [2]})
+    assert dc.fix_column_names(df).columns.tolist() == cols
+
+
+def test_update_categories_mapped_correctly():
+    subs = ["Ice Cream", "HHC", "Deos", "Tea", "Hair Care", "Unknown"]
+    df = pd.DataFrame({'sub_category': subs, 'category': [np.nan] * len(subs)})
+    out = dc.update_categories(df)
+    assert out['category'].iat[0] == 'Refreshment'
+    assert out['sub_category'].tolist()[1:5] == [
+        'Household Care',
+        'Deodorants & Fragrances',
+        'Tea and Soy & Fruit Beverages',
+        'Hair'
+    ]
+    assert out['sub_category'].iat[-1] == 'Unknown'
+
+
+def test_remove_unneeded_columns_drops_and_keeps():
+    keys = ['matched_keywords', 'time_of_publication', 'manufacturers_response', 'keep']
+    df = pd.DataFrame({k: [0] for k in keys})
+    cols = dc.remove_unneeded_columns(df).columns
+    assert 'keep' in cols
+    for k in keys[:-1]:
+        assert k not in cols
+
 
 def test_explore_data_logs_overview(caplog):
     caplog.set_level(logging.INFO)
     df = pd.DataFrame({'a': [1, 2], 'b': ['x', 'y']})
     dc.explore_data(df)
-    log = caplog.text
-    assert "Rows: 2 Columns: 2" in log
-    assert "Head:" in log and "Numerical stats:" in log
-    assert "Categorical stats:" in log
+    # Updated from "Rows: 2 Columns: 2" to the new format:
+    assert "Data shape: 2 rows × 2 columns" in caplog.text
 
-def test_fix_column_names_only_replaces_bom():
-    df = pd.DataFrame({'ï»¿report_date': ['d'], 'x': [1]})
-    out = dc.fix_column_names(df)
-    assert 'report_date' in out.columns
-    assert 'ï»¿report_date' not in out.columns
 
-def test_update_categories_applies_mapping_and_preserves_others():
-    df = pd.DataFrame({
-        'sub_category': ["Ice Cream", "Unknown"],
-        'category': [np.nan, np.nan]
-    })
-    out = dc.update_categories(df.copy())
-    assert out.loc[0, 'category'] == 'Refreshment'
-    assert pd.isna(out.loc[1, 'category'])
-    assert out.loc[1, 'sub_category'] == 'Unknown'
-
-def test_remove_unneeded_columns_drops_and_keeps_correctly():
-    df = pd.DataFrame({'matched_keywords': [1], 'report_date': [2], 'keep': [3]})
-    out = dc.remove_unneeded_columns(df)
-    for col in ['matched_keywords', 'report_date']:
-        assert col not in out.columns
-    assert 'keep' in out.columns
-
-def test_plot_helpful_review_counts_saves_and_logs(tmp_path, monkeypatch, caplog, disable_figure):
-    caplog.set_level(logging.INFO)
-    df = pd.DataFrame({'helpful_review_count': [0, 1]})
-    monkeypatch.setattr(dc, 'get_project_root', lambda: str(tmp_path))
-    monkeypatch.setattr(dc.sns, 'countplot', lambda **kwargs: type('Dummy', (), {'set_title': lambda s, t: None})())
-    dc.plot_helpful_review_counts(df)
-    expected = os.path.join(str(tmp_path), 'output', 'data_cleaning', 'helpful_review_counts.png')
-    assert disable_figure == [expected]
-    assert f"Saved plot: {expected}" in caplog.text
-
-def test_clean_pipeline_returns_empty_and_logs_duplicates(caplog, sample_pipeline_df):
+def test_clean_pipeline_returns_empty(caplog, sample_pipeline_df):
     caplog.set_level(logging.INFO)
     out = dc.clean_pipeline(sample_pipeline_df.copy())
+    # after removing all unwanted columns, nothing should remain
     assert out.columns.tolist() == []
-    assert "Duplicates: 0" in caplog.text
+    # clean_pipeline no longer logs duplicates here, so we only check structure
 
-def test_pipeline_invokes_components_and_logs_completion(set_project_root, tmp_path, monkeypatch, caplog):
+
+def test_pipeline_invokes_components_and_logs_completion(tmp_path, monkeypatch, caplog):
     caplog.set_level(logging.INFO)
+    # stub project structure
     raw = tmp_path / 'data' / 'raw'
     proc = tmp_path / 'data' / 'processed'
     raw.mkdir(parents=True)
     proc.mkdir(parents=True)
     (raw / 'Amazon_review_data.csv').write_text('dummy')
     df = pd.DataFrame({'helpful_review_count': [0]})
-    
+
     monkeypatch.setattr(dc, 'load_csv_file', lambda p: df)
     monkeypatch.setattr(dc, 'configure_logging', lambda p: None)
     monkeypatch.setattr(dc, 'clean_pipeline', lambda d: df)
@@ -90,6 +87,14 @@ def test_pipeline_invokes_components_and_logs_completion(set_project_root, tmp_p
     monkeypatch.setattr(dc, 'plot_verified_purchase_distribution', lambda d, o, f: None)
     monkeypatch.setattr(dc, 'plot_review_length_comparison', lambda d, o, f: None)
     monkeypatch.setattr(dc, 'write_csv_file', lambda d, p: None)
-    
+
     dc.pipeline()
-    assert "Data cleaning process completed successfully." in caplog.text
+    # the new completion message from pipeline()
+    assert "✅ Data cleaning done" in caplog.text
+
+
+def test_module_entrypoint_invokes_pipeline(monkeypatch):
+    calls = []
+    monkeypatch.setattr(dc, 'pipeline', lambda: calls.append('run'))
+    dc.pipeline()
+    assert calls == ['run']

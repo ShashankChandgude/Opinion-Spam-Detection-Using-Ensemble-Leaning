@@ -1,6 +1,6 @@
 import pytest
 import matplotlib.pyplot as plt
-from src.evaluation_visualization import create_results_dataframe, plot_error_curves
+from src.evaluation.evaluation_visualization import create_results_dataframe, plot_error_curves
 
 def test_results_dataframe():
     data = {'A': {'Accuracy': .9, 'Precision': .8},

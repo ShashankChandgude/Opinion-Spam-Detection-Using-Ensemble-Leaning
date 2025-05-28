@@ -2,6 +2,8 @@ import numpy as np
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
 def cross_validate_models(X_vec, y, classifiers: dict, n_splits=5) -> dict:
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
