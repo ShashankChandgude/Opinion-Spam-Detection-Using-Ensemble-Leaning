@@ -1,110 +1,100 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from src.utils.helpers import os, pd, plt, sns, get_project_root, WordCloud, plot_verified_purchase_distribution, plot_review_length_comparison
+from src.utils.helpers import (os, pd, plt, sns, get_project_root, WordCloud, stopwords, word_tokenize, PorterStemmer)
 from src.data.data_io import load_csv_file, write_csv_file
 from src.utils.logging import logging, configure_logging
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import PorterStemmer
+import re
+import string
 
 sns.set_theme(style="darkgrid")
 STOPWORDS = set(stopwords.words('english'))
 
-def drop_unwanted_cols(data: pd.DataFrame) -> pd.DataFrame:
-    return data.drop(["Unnamed: 0", "review_title", "review_date"], axis=1, errors='ignore')
+def load_cleaned_data(root: str) -> pd.DataFrame:
+    path = os.path.join(root, "data", "processed", "cleaned_data.csv")
+    df = load_csv_file(path)
+    logging.info("Loaded cleaned data: %d rows × %d cols", *df.shape)
+    return df
 
-def remove_duplications(data: pd.DataFrame) -> pd.DataFrame:
-    return data.drop_duplicates().reset_index(drop=True)
+def save_preprocessed_data(df: pd.DataFrame, root: str) -> None:
+    out_path = os.path.join(root, "data", "processed", "preprocessed_data.csv")
+    write_csv_file(df, out_path)
+    logging.info("Saved preprocessed data to %s", out_path)
 
-def compute_text_stats(data: pd.DataFrame) -> pd.DataFrame:
-    data['total_words'] = data['review_text'].str.split().str.len()
-    data['total_characters'] = data['review_text'].str.len()
-    data['total_stopwords'] = data['review_text'].str.split().apply(lambda toks: len(set(toks) & STOPWORDS))
-    data['total_punctuations'] = data['review_text'].apply(lambda txt: sum(1 for ch in txt if ch in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'))
-    data['total_uppercases'] = data['review_text'].str.count(r'[A-Z]')
-    return data
+def setup_logging(root) -> None:
+    log_file = os.path.join(root, "output", "log.txt")
+    configure_logging(log_file)
 
-def drop_text_stats_cols(data: pd.DataFrame) -> pd.DataFrame:
-    return data.drop(["total_words", "total_characters", "total_stopwords",
-                      "total_punctuations", "total_uppercases", "review_rating"],
-                     axis=1, errors='ignore')
+def compute_text_stats(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df['total_words'] = df['review_text'].apply(lambda t: len(str(t).split()))
+    df['total_characters'] = df['review_text'].str.len()
+    df['total_stopwords'] = df['review_text'].str.split() \
+        .apply(lambda toks: len(set(toks) & STOPWORDS))
+    df['total_punctuations'] = df['review_text'] \
+        .apply(lambda t: sum(1 for ch in t if ch in string.punctuation))
+    df['total_uppercases'] = df['review_text'].str.findall(r'[A-Z]').str.len()
+    return df
 
-def apply_text_cleaning(text: str) -> str:
-    cleaned = ''.join(ch if ch.isalpha() else ' ' for ch in text).lower()
-    tokens = [w for w in cleaned.split() if w not in STOPWORDS]
-    stemmer = PorterStemmer()
-    return ' '.join(stemmer.stem(w) for w in tokens)
+def clean_df(df: pd.DataFrame) -> pd.DataFrame:
+    def _clean(text: str) -> str:
+        cleaned = re.sub(r'[^a-zA-Z]', ' ', str(text))
+        tokens = cleaned.lower().split()
+        stemmer = PorterStemmer()
+        filtered = [tok for tok in tokens if tok not in STOPWORDS]
+        return ' '.join(stemmer.stem(tok) for tok in filtered)
 
-def preprocess_text(data: pd.DataFrame) -> pd.DataFrame:
-    data['review_text'] = data['review_text'].apply(apply_text_cleaning)
-    return data
+    out = df.copy()
+    out['review_text'] = out['review_text'].apply(_clean)
+    return out
 
-def log_rare_words(data: pd.DataFrame) -> None:
-    all_words = ' '.join(data['review_text']).split()
-    counts = pd.Series(all_words).value_counts()
-    rare = counts.nsmallest(10).index.tolist()
-    logging.info("10 least common tokens: %s", ', '.join(rare))
+def log_token_stats(df: pd.DataFrame) -> None:
+    all_tokens = ' '.join(df['review_text']).split()
+    counts = pd.Series(all_tokens).value_counts()
+    top10 = ', '.join(counts.head(10).index)
+    bot10 = ', '.join(counts.tail(10).index)
+    logging.info("10 most common tokens: %s", top10)
+    logging.info("10 least common tokens: %s", bot10)
 
-def create_wordcloud(data: pd.DataFrame, out_folder: str, filename: str) -> None:
-    all_text = " ".join(data["review_text"])
-    wc = WordCloud(width=700, height=700, background_color='white', min_font_size=10).generate(all_text)
+def create_wordcloud(df: pd.DataFrame, out_folder: str, fname: str) -> None:
+    text = ' '.join(df['review_text'])
+    wc = WordCloud(
+        width=700, height=700,
+        background_color='white', min_font_size=10
+    ).generate(text)
+
     plt.figure(figsize=(5,5))
     plt.imshow(wc)
-    plt.axis("off")
-    plt.tight_layout(pad=0)
-    path = os.path.join(out_folder, filename)
+    plt.axis('off')
+    path = os.path.join(out_folder, fname)
     plt.savefig(path)
     logging.info("Saved wordcloud: %s", path)
     plt.close()
 
-def remove_common_rare_words(data: pd.DataFrame) -> pd.DataFrame:
-    words = " ".join(data['review_text']).split()
-    counts = pd.Series(words).value_counts()
-    top3 = set(counts.nlargest(3).index)
-    bot3 = set(counts.nsmallest(3).index)
-    data['review_text'] = data['review_text'].apply(
-        lambda txt: ' '.join(w for w in txt.split() if w not in top3 and w not in bot3)
-    )
-    return data
-
-def tokenize_text(data: pd.DataFrame) -> None:
-    tokens = data['review_text'].apply(word_tokenize)
+def tokenize_df(df: pd.DataFrame) -> pd.Series:
+    df_text = df.copy()
+    tokens = df['review_text'].apply(word_tokenize)
     logging.info("Tokenized (first 5 rows):\n%s", tokens.head().to_string())
-    return tokens
+    df_text['tokens'] = tokens
+    return df_text
+
+def plot_wordcloud(df: pd.DataFrame, out_folder: str) -> None:
+    create_wordcloud(df,  out_folder, "wordcloud_after.png")
 
 def pipeline() -> None:
-    root = get_project_root()
-    processed_in = os.path.join(root, "data", "processed", "updated_data.csv")
-    processed_out = os.path.join(root, "data", "processed", "cleaned_data.csv")
+    root      = get_project_root()
     out_folder = os.path.join(root, "output", "data_preprocessing")
     os.makedirs(out_folder, exist_ok=True)
-    log_file = os.path.join(root, "output", "log.txt")
-    configure_logging(log_file)
-
+    setup_logging(root)
     logging.info("🔹 Starting preprocessing")
 
-    data = load_csv_file(processed_in)
-    data = drop_unwanted_cols(data)
-    data = remove_duplications(data)
-    data = compute_text_stats(data)
+    final_df = load_cleaned_data(root).pipe(compute_text_stats).pipe(clean_df).pipe(tokenize_df)
 
-    plot_verified_purchase_distribution(data, out_folder, "verified_purchase_distribution.png")
-    plot_review_length_comparison(data, out_folder, "review_length_by_verification.png")
-
-    data = drop_text_stats_cols(data)
-    data = preprocess_text(data)
-    log_rare_words(data)
-
-    create_wordcloud(data, out_folder, "wordcloud_before.png")
-    data = remove_common_rare_words(data)
-    create_wordcloud(data, out_folder, "wordcloud_after.png")
-
-    tokenize_text(data)
-    write_csv_file(data, processed_out)
+    log_token_stats(final_df)
+    plot_wordcloud(final_df, out_folder)
+    save_preprocessed_data(final_df, root)
 
     logging.info("✅ Preprocessing done")
 
 if __name__ == "__main__":
-    pipeline() # pragma: no cover
-
+    pipeline()  # pragma: no cover

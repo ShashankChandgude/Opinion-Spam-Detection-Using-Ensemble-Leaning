@@ -889,3 +889,100 @@ review_hash_id                2501
 2025-05-28 02:04:36,389 INFO: Saved verified purchase distribution plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
 2025-05-28 02:04:36,512 INFO: Saved review length comparison plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
 2025-05-28 02:04:36,533 INFO: ✅ Data cleaning done
+2025-05-28 02:20:41,454 INFO: 🔹 Starting data cleaning
+2025-05-28 02:20:41,563 INFO: Data shape: 2501 rows × 32 columns
+2025-05-28 02:20:41,639 INFO: Columns & dtypes:
+                          dtype
+ï»¿report_date           object
+online_store             object
+upc                     float64
+retailer_product_code    object
+brand                    object
+category                 object
+sub_category             object
+product_description      object
+review_date              object
+review_rating             int64
+review_title             object
+review_text              object
+is_competitor             int64
+manufacturer             object
+market                   object
+matched_keywords        float64
+time_of_publication     float64
+url                      object
+review_type              object
+parent_review            object
+manufacturers_response  float64
+dimension1               object
+dimension2               object
+dimension3               object
+dimension4              float64
+dimension5              float64
+dimension6              float64
+dimension7               object
+dimension8               object
+verified_purchase          bool
+helpful_review_count      int64
+review_hash_id           object
+2025-05-28 02:20:41,694 INFO: Numeric summary (mean/min/max):
+               upc  review_rating  is_competitor  matched_keywords  time_of_publication  manufacturers_response  dimension4  dimension5  dimension6  helpful_review_count
+mean  7.632298e+12       4.456218            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.231507
+min   4.218266e+07       1.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              0.000000
+max   8.722700e+12       5.000000            0.0               NaN                  NaN                     NaN         NaN         NaN         NaN              7.000000
+2025-05-28 02:20:41,705 INFO: Categorical unique counts:
+                       unique_vals
+ï»¿report_date                 133
+online_store                     9
+retailer_product_code          367
+brand                           35
+category                         4
+sub_category                    16
+product_description            219
+review_date                    144
+review_title                  1243
+review_text                   1622
+manufacturer                     1
+market                           1
+url                           1571
+review_type                      2
+parent_review                    2
+dimension1                      16
+dimension2                     106
+dimension3                      94
+dimension7                      15
+dimension8                       1
+review_hash_id                2501
+2025-05-28 02:20:41,714 INFO: ➔ Duplicates dropped: 0
+2025-05-28 02:20:41,775 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-28 02:20:41,850 INFO: Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-28 02:20:42,079 INFO: Saved plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\helpful_review_counts.png
+2025-05-28 02:20:42,193 INFO: Saved verified purchase distribution plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\verified_purchase_distribution.png
+2025-05-28 02:20:42,328 INFO: Saved review length comparison plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_cleaning\review_length_vs_verified_purchase.png
+2025-05-28 02:20:42,345 INFO: ✅ Data cleaning done
+2025-05-28 02:20:42,348 INFO: 🔹 Starting preprocessing
+2025-05-28 02:20:42,491 INFO: Saved verified purchase distribution plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\verified_purchase_distribution.png
+2025-05-28 02:20:42,601 INFO: Saved review length comparison plot: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\review_length_by_verification.png
+2025-05-28 02:20:43,206 INFO: 10 least common tokens: decis, gleam, advoid, persin, confus, shelv, charg, common, capful, blotchi
+2025-05-28 02:20:44,803 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_before.png
+2025-05-28 02:20:45,911 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-05-28 02:20:46,879 INFO: Tokenized (first 5 rows):
+0    [get, older, know, like, suitabl, bodi, like, ...
+1    [three, gigant, marmit, jar, last, probabl, wh...
+2                                              [excel]
+3                    [great, flavour, top, slow, cook]
+4                                                [say]
+2025-05-28 02:20:47,481 INFO: ✅ Preprocessing done
+2025-05-28 18:11:31,422 INFO: 🔹 Starting preprocessing
+2025-05-28 18:11:31,480 INFO: Loaded cleaned data: 1596 rows × 2 cols
+2025-05-28 18:11:33,814 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-05-28 18:11:33,880 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-05-28 18:11:33,880 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-05-28 18:11:37,113 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-05-28 18:11:37,231 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data\processed\preprocessed_data.csv
+2025-05-28 18:11:37,231 INFO: ✅ Preprocessing done
