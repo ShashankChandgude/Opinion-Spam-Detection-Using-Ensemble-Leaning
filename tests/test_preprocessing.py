@@ -1,111 +1,100 @@
-import pandas as pd
-import numpy as np
-import logging
 import os
+import pandas as pd
 import pytest
+import matplotlib
+matplotlib.use('Agg')
+from src.data import preprocessing as pp
 
-import src.data.preprocessing as pp
-
-
-def test_drop_unwanted_cols_removes_extra():
-    df = pd.DataFrame({
-        "Unnamed: 0": [1],
-        "review_title": ["t"],
-        "review_date": ["d"],
-        "review_text": ["x"],
+@pytest.fixture
+def simple_df():
+    return pd.DataFrame({
+        "review_text": [
+            "Hello, WORLD!! This is a Test.",
+            "Short text..."
+        ]
     })
-    assert pp.drop_unwanted_cols(df).columns.tolist() == ["review_text"]
 
+def test_compute_text_stats_adds_expected_columns(simple_df):
+    df = pp.compute_text_stats(simple_df)
+    assert "review_text" in df.columns
+    for col in ["total_words", "total_characters", "total_stopwords",
+                "total_punctuations", "total_uppercases"]:
+        assert col in df.columns
+    assert df.at[0, "total_words"] == 6
+    assert df.at[0, "total_characters"] == len(simple_df.at[0, "review_text"])
+    assert df.at[0, "total_punctuations"] >= 3
+    assert df.at[0, "total_uppercases"] >= 7
 
-def test_remove_duplications_eliminates_duplicates():
-    df = pd.DataFrame({"a": [1, 1, 2]})
-    out = pp.remove_duplications(df)
-    assert out.shape[0] == 2
-    assert list(out.index) == [0, 1]
+def test_clean_df_filters_non_alpha_and_stems():
+    df = pd.DataFrame({
+        "review_text": ["Running!! Running requires energized runners..."]
+    })
+    cleaned = pp.clean_df(df)
+    txt = cleaned.at[0, "review_text"]
+    assert "run" in txt
+    assert all(ch.isalpha() or ch.isspace() for ch in txt)
 
+def test_log_token_stats_emits_both_logs(caplog):
+    caplog.set_level("INFO")
+    df = pd.DataFrame({"review_text": ["a a b c", "b c c d"]})
+    pp.log_token_stats(df)
+    text = caplog.text
+    assert "10 most common tokens:" in text
+    assert "10 least common tokens:" in text
 
-def test_compute_text_stats_creates_correct_metrics():
-    txt = "Hello, WORLD!!"
-    df = pd.DataFrame({"review_text": [txt]})
-    out = pp.compute_text_stats(df.copy())
-    assert out.at[0, "total_words"] == 2
-    assert out.at[0, "total_characters"] == len(txt)
-    # punctuation count just checks that the column exists
-    assert "total_punctuations" in out.columns
-    # uppercase count
-    assert out.at[0, "total_uppercases"] == sum(ch.isupper() for ch in txt)
+def test_tokenize_df_creates_tokens_column_and_logs(caplog, monkeypatch):
+    caplog.set_level("INFO")
+    monkeypatch.setattr(pp, "word_tokenize", lambda txt: txt.split())
+    df = pd.DataFrame({"review_text": ["one two", "three"]})
+    out = pp.tokenize_df(df)
+    assert "tokens" in out.columns
+    assert out.at[0, "tokens"] == ["one", "two"]
+    assert "Tokenized (first 5 rows):" in caplog.text
 
+def test_load_and_save_preprocessed_data(tmp_path, caplog):
+    root = tmp_path
+    proc = tmp_path / "data" / "processed"
+    proc.mkdir(parents=True)
+    (proc / "cleaned_data.csv").write_text("review_text\nalpha\nbeta\n")
+    caplog.set_level("INFO")
+    df = pp.load_cleaned_data(str(root))
+    assert isinstance(df, pd.DataFrame)
+    assert df.shape == (2, 1)
+    assert "Loaded cleaned data: 2 rows × 1 cols" in caplog.text
+    calls = []
+    monkeypatch = pytest.MonkeyPatch()
+    monkeypatch.setenv 
+    monkeypatch.setattr(pp, "write_csv_file", lambda df_, path: calls.append(path))
+    pp.save_preprocessed_data(df, str(root))
+    monkeypatch.undo()
+    assert calls, "Expected write_csv_file to be called"
+    assert calls[0].endswith(os.path.join("data","processed","preprocessed_data.csv"))
+    assert "Saved preprocessed data to" in caplog.text
 
-def test_drop_text_stats_cols_removes_stats_and_rating():
-    cols = [
-        "total_words", "total_characters", "total_stopwords",
-        "total_punctuations", "total_uppercases", "review_rating", "review_text"
-    ]
-    df = pd.DataFrame({c: [0] for c in cols})
-    remaining = pp.drop_text_stats_cols(df).columns
-    assert "review_text" in remaining
-    for c in remaining:
-        assert not c.startswith("total_") or c == "review_text"
+def test_pipeline_end_to_end(tmp_path, caplog, monkeypatch):
+    caplog.set_level("INFO")
+    monkeypatch.setattr(pp, "setup_logging", lambda root: None)
 
-
-def test_apply_text_cleaning_filters_and_stems():
-    raw = "This is a TEST! Running 123"
-    cleaned = pp.apply_text_cleaning(raw)
-    # should remove non-alpha, lowercase, remove stopwords, stem
-    assert set(cleaned.split()) == {"test", "run"}
-
-
-def test_remove_common_rare_words_filters_top_and_bottom():
-    sentence = "a b b c c c d e f f f"
-    df = pd.DataFrame({"review_text": [sentence]})
-    out = pp.remove_common_rare_words(df.copy())
-    # all words were either too common or too rare
-    assert out.at[0, "review_text"] == ""
-
-
-def test_log_rare_words_outputs_least_frequent(caplog):
-    caplog.set_level(logging.INFO)
-    df = pd.DataFrame({"review_text": ["x x y z"]})
-    pp.log_rare_words(df)
-    log = caplog.text
-    # only check for the new phrase
-    assert "least common tokens:" in log
-
-
-def test_tokenize_text_returns_list_and_logs(caplog, monkeypatch):
-    caplog.set_level(logging.INFO)
-    df = pd.DataFrame({"review_text": ["x y"]})
-    monkeypatch.setattr(pp, "word_tokenize", lambda t: t.split())
-    tokens = pp.tokenize_text(df.copy())
-    assert isinstance(tokens.iloc[0], list)
-    # updated logging header
-    assert "Tokenized (first 5 rows)" in caplog.text
-
-
-def test_pipeline_executes_all_steps_and_logs_completion(tmp_path, monkeypatch, caplog):
-    caplog.set_level(logging.INFO)
-    # stub project structure and I/O
     monkeypatch.setattr(pp, "get_project_root", lambda: str(tmp_path))
-    (tmp_path / "data" / "processed").mkdir(parents=True)
-    (tmp_path / "data" / "processed" / "updated_data.csv").write_text("ignore")
 
-    monkeypatch.setattr(pp, "load_csv_file", lambda p: pd.DataFrame({
-        "review_text": ["test"], "review_rating": [1]
-    }))
-    monkeypatch.setattr(pp, "drop_unwanted_cols", lambda d: d)
-    monkeypatch.setattr(pp, "remove_duplications", lambda d: d)
-    monkeypatch.setattr(pp, "compute_text_stats", lambda d: d)
-    monkeypatch.setattr(pp, "plot_verified_purchase_distribution", lambda d, o, f: None)
-    monkeypatch.setattr(pp, "plot_review_length_comparison", lambda d, o, f: None)
-    monkeypatch.setattr(pp, "drop_text_stats_cols", lambda d: d)
-    monkeypatch.setattr(pp, "preprocess_text", lambda d: d)
-    monkeypatch.setattr(pp, "log_rare_words", lambda d: None)
-    monkeypatch.setattr(pp, "create_wordcloud", lambda d, o, f: None)
-    monkeypatch.setattr(pp, "remove_common_rare_words", lambda d: d)
-    monkeypatch.setattr(pp, "tokenize_text", lambda d: None)
-    monkeypatch.setattr(pp, "write_csv_file", lambda d, p: None)
-    monkeypatch.setattr(pp, "configure_logging", lambda p: None)
+    proc = tmp_path / "data" / "processed"
+    proc.mkdir(parents=True)
+    (proc / "cleaned_data.csv").write_text("review_text\nspam spam ham\nfoo bar baz\n")
+
+    monkeypatch.setattr(pp, "create_wordcloud", lambda df, of, fn: None)
 
     pp.pipeline()
-    # updated completion marker
-    assert "✅ Preprocessing done" in caplog.text
+
+    log = caplog.text
+    assert "🔹 Starting preprocessing" in log
+    assert "Loaded cleaned data: 2 rows × 1 cols" in log
+    assert "✅ Preprocessing done" in log
+
+    out_csv = tmp_path / "data" / "processed" / "preprocessed_data.csv"
+    assert out_csv.exists()
+    df_out = pd.read_csv(out_csv)
+
+    assert "review_text" in df_out.columns
+    assert "total_words" in df_out.columns
+    assert "tokens" in df_out.columns
+

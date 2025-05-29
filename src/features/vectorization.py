@@ -17,9 +17,8 @@ def vectorize_train_test(X_train, X_test, vectorizer_type="count"):
 
 def load_and_vectorize_data(test_size=0.2, vectorizer_type="count", random_state=42):
     root = get_project_root()
-    processed_file = os.path.join(root, "data", "processed", "cleaned_data.csv")
+    processed_file = os.path.join(root, "data", "processed", "processed_data.csv")
     data = load_csv_file(processed_file)
-    # Ensure there are no NaNs in review_text
     data = data.dropna(subset=['review_text'])
     X = data['review_text']
     y = data['verified_purchase']
