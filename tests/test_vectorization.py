@@ -3,42 +3,51 @@ import pytest
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import src.features.vectorization as vz
 
-
-def test_count_vectorizer_splits():
-    vect, train_vec, test_vec = vz.vectorize_train_test(['aa bb', 'bb cc'], ['aa bb'])
-    assert isinstance(vect, CountVectorizer)
-    assert train_vec.shape[0] == 2 and test_vec.shape[0] == 1
-
-
-def test_tfidf_vectorizer_dimensions():
+def test_vectorize_count_produces_count_vectorizer():
     vect, train_vec, test_vec = vz.vectorize_train_test(
-        ['xx yy', 'yy zz'], ['xx yy'], vectorizer_type='tfidf'
+        ["a b c", "b c d"], ["a b c"]
+    )
+    assert isinstance(vect, CountVectorizer)
+    assert train_vec.shape[0] == 2
+    assert test_vec.shape[0] == 1
+
+def test_vectorize_tfidf_produces_tfidf_vectorizer():
+    vect, train_vec, test_vec = vz.vectorize_train_test(
+        ["x y", "y z"], ["x y"],
+        vectorizer_type="tfidf"
     )
     assert isinstance(vect, TfidfVectorizer)
-    features = vect.get_feature_names_out()
-    assert train_vec.shape[1] == len(features) and test_vec.shape[1] == len(features)
+    feat_count = len(vect.get_feature_names_out())
+    assert train_vec.shape[1] == feat_count
+    assert test_vec.shape[1] == feat_count
 
-
-def test_invalid_vectorizer_raises():
+def test_unknown_vectorizer_raises_value_error():
     with pytest.raises(ValueError):
-        vz.vectorize_train_test(['aa'], ['bb'], vectorizer_type='bad')
+        vz.vectorize_train_test(["foo"], ["bar"], vectorizer_type="bogus")
 
-
-def test_load_and_vectorize_splits(tmp_path, monkeypatch):
+def test_load_and_vectorize_data_stratifies_and_returns_all(tmp_path, monkeypatch):
     root = tmp_path
-    proc = root / 'data' / 'processed'
+    proc = root / "data" / "processed"
     proc.mkdir(parents=True)
-    file = proc / 'processed_data.csv'
+    file = proc / "preprocessed_data.csv"
     df = pd.DataFrame({
-        'review_text': ['foo foo', 'bar bar', 'baz baz', 'qux qux'],
-        'verified_purchase': [True, False, True, False]
+        "review_text": ["spam spam", "ham ham", "spam cheese", "ham biscuit"],
+        "label":      [1,          0,       1,            0]
     })
     df.to_csv(file, index=False)
-    monkeypatch.setattr(vz, 'get_project_root', lambda: str(root))
+
+    monkeypatch.setattr(vz, "get_project_root", lambda: str(root))
 
     vect, Xtr, Xte, ytr, yte, data = vz.load_and_vectorize_data(
-        test_size=0.5, vectorizer_type='count', random_state=1
+        test_size=0.5, vectorizer_type="count", random_state=123
     )
-    assert Xtr.shape[0] == 2 and Xte.shape[0] == 2
+
+    assert Xtr.shape[0] == 2
+    assert Xte.shape[0] == 2
+
     pd.testing.assert_frame_equal(data.reset_index(drop=True), df.reset_index(drop=True))
-    assert len(ytr) == 2 and len(yte) == 2
+    
+    assert sorted(ytr.tolist()) == [0,1]
+    assert sorted(yte.tolist()) == [0,1]
+
+    assert isinstance(vect, CountVectorizer)
