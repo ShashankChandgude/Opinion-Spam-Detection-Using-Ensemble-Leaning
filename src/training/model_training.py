@@ -1,3 +1,4 @@
+from sklearn.model_selection import StratifiedKFold
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
 from sklearn.svm import SVC
@@ -26,11 +27,12 @@ def train_bagging_ensemble(classifier_name: str, classifier_class, best_params: 
     ensemble.fit(X_train, y_train)
     return ensemble
 
-def train_stacking_ensemble(best_models: dict, X_train, y_train, meta_estimator=None):
+def train_stacking_ensemble(best_models: dict, X_train, y_train, meta_estimator=None, n_splits: int = 5):
     if meta_estimator is None:
         meta_estimator = LogisticRegression()
+    cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
     estimators = [(name, model) for name, model in best_models.items()]
-    stacking = StackingClassifier(estimators=estimators, final_estimator=meta_estimator, cv=5, n_jobs=-1)
+    stacking = StackingClassifier(estimators=estimators, final_estimator=meta_estimator, cv=cv, n_jobs=-1)
     stacking.fit(X_train, y_train)
     return stacking
 
