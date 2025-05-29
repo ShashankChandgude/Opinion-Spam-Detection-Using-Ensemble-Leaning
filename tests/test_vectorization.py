@@ -14,8 +14,8 @@ def test_tfidf_vectorizer_dimensions():
     vect, train_vec, test_vec = vz.vectorize_train_test(
         ['xx yy', 'yy zz'], ['xx yy'], vectorizer_type='tfidf'
     )
-    features = vect.get_feature_names_out()
     assert isinstance(vect, TfidfVectorizer)
+    features = vect.get_feature_names_out()
     assert train_vec.shape[1] == len(features) and test_vec.shape[1] == len(features)
 
 
@@ -28,15 +28,17 @@ def test_load_and_vectorize_splits(tmp_path, monkeypatch):
     root = tmp_path
     proc = root / 'data' / 'processed'
     proc.mkdir(parents=True)
+    file = proc / 'processed_data.csv'
     df = pd.DataFrame({
         'review_text': ['foo foo', 'bar bar', 'baz baz', 'qux qux'],
         'verified_purchase': [True, False, True, False]
     })
-    file = proc / 'cleaned_data.csv'
     df.to_csv(file, index=False)
     monkeypatch.setattr(vz, 'get_project_root', lambda: str(root))
 
     vect, Xtr, Xte, ytr, yte, data = vz.load_and_vectorize_data(
         test_size=0.5, vectorizer_type='count', random_state=1
     )
-    assert Xtr.shape[0] == 2 and Xte.shape[0] == 2 and data.equals(df)
+    assert Xtr.shape[0] == 2 and Xte.shape[0] == 2
+    pd.testing.assert_frame_equal(data.reset_index(drop=True), df.reset_index(drop=True))
+    assert len(ytr) == 2 and len(yte) == 2
