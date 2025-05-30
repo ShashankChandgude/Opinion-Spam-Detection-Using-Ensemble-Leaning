@@ -43,7 +43,7 @@ def test_load_and_vectorize_data_stratifies_and_returns_all(tmp_path, monkeypatc
 
     monkeypatch.setattr(vz, "get_project_root", lambda: str(root))
 
-    vect, Xtr, Xte, ytr, yte, data = vz.load_and_vectorize_data(test_size=0.5, vectorizer_type="count", random_state=123)
+    vect, Xtr, Xte, ytr, yte, data = vz.load_and_vectorize_data(vectorizer_type="count", test_size=0.5, random_state=123)
 
     assert Xtr.shape[0] == 2
     assert Xte.shape[0] == 2

@@ -7,9 +7,9 @@ from src.evaluation.evaluation_visualization import plot_error_curves, create_re
 from src.evaluation.compute_errors import compute_errors
 
 
-def model_pipeline():
+def model_pipeline(vectorizer_type="tfidf", test_size=0.2):
     """Full vectorization, training, evaluation and error plotting pipeline."""
-    _, X_train_vec, X_test_vec, y_train, y_test, _ = load_and_vectorize_data()
+    _, X_train_vec, X_test_vec, y_train, y_test, _ = load_and_vectorize_data(vectorizer_type, test_size, random_state=42)
     run_cv_and_plot(X_train_vec, y_train, BASE_CLASSIFIERS)
 
     best_models, best_params = optimize_all_classifiers(BASE_CLASSIFIERS, HYPERPARAMS, X_train_vec, y_train)

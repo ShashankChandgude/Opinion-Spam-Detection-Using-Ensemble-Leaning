@@ -19,14 +19,14 @@ _VECTORIZE_STRATEGIES = {
     "tfidf": vectorize_tfidf,
 }
 
-def vectorize_train_test(X_train, X_test, vectorizer_type="count"):
+def vectorize_train_test(X_train, X_test, vectorizer_type="tfidf"):
     try:
         strategy = _VECTORIZE_STRATEGIES[vectorizer_type]
     except KeyError:
         raise ValueError(f"Unknown vectorizer_type: {vectorizer_type}")
     return strategy(X_train, X_test)
 
-def load_and_vectorize_data(test_size=0.2, vectorizer_type="count", random_state=42):
+def load_and_vectorize_data(vectorizer_type="tfidf", test_size=0.2, random_state=42):
     root = get_project_root()
     processed_file = os.path.join(root, "data", "processed", "preprocessed_data.csv")
     data = load_csv_file(processed_file)

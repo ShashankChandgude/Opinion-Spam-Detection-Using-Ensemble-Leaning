@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-from paver.easy import task, needs, sh
+from paver.easy import task, needs, sh, cmdopts
 import os
 import shutil
 import glob
 import sys
+
 
 @task
 def setup():
@@ -13,7 +14,7 @@ def setup():
 
 @task
 def clean():
-    for pattern in ['**/*.py[co]', '.coverage*', 'coverage.xml']:
+    for pattern in ['**/*.py[co]', '.coverage', '.coverage.*','coverage.xml']:
         for path in glob.glob(pattern, recursive=True):
             os.remove(path)
 
@@ -24,9 +25,18 @@ def clean():
 def test():
     sh(f'"{sys.executable}" -m pytest --cov=src --cov-report=term --cov-report=html')
 
+
+cmdopts(
+    [
+        ("vectorizer=", "v", "Text vectorizer to use: count or tfidf"),
+        ("test-size=", "t", "Test set fraction (float, e.g. 0.2)"),
+    ]
+)
 @task
-def run():
-    sh('python -m main')
+def run(options):
+    vec = options.get("vectorizer") or "tfidf"
+    ts  = options.get("test_size") or 0.2
+    sh(f"python -m main --vectorizer {vec} --test-size {ts}")
 
 @task
 @needs('setup', 'clean', 'test', 'run')
