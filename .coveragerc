@@ -1,0 +1,6 @@
+[run]
+omit =
+  main.py
+  src/pipeline.py
+  src/**/__init__.py
+  src/__init__.py

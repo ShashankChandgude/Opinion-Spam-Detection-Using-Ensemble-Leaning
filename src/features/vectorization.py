@@ -7,11 +7,11 @@ from src.utils.helpers import get_project_root
 import os
 
 def vectorize_count(X_train, X_test):
-    vec = CountVectorizer(stop_words="english")
+    vec = CountVectorizer()
     return vec, vec.fit_transform(X_train), vec.transform(X_test)
 
 def vectorize_tfidf(X_train, X_test):
-    vec = TfidfVectorizer(stop_words="english")
+    vec = TfidfVectorizer()
     return vec, vec.fit_transform(X_train), vec.transform(X_test)
 
 _VECTORIZE_STRATEGIES = {
