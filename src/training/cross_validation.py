@@ -60,9 +60,10 @@ def plot_cv_results(results: dict, save_path: str = None) -> None:
         plt.close(fig)
     else:
         plt.show()
+    
+    return fig, ax
 
 def run_cv_and_plot(X_vec, y, classifiers: dict, n_splits: int = 5, save_path: str = None) -> dict:
-    
     results = cross_validate_models(X_vec, y, classifiers, n_splits)
     plot_cv_results(results, save_path)
     return results
