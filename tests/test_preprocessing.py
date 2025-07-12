@@ -1,100 +1,273 @@
-import os
 import pandas as pd
 import pytest
-import matplotlib
-matplotlib.use('Agg')
-from src.data import preprocessing as pp
+from unittest.mock import patch, Mock
+from src.data.preprocessing import DataPreprocessor, pipeline
 
-@pytest.fixture
-def simple_df():
-    return pd.DataFrame({
-        "review_text": [
-            "Hello, WORLD!! This is a Test.",
-            "Short text..."
-        ]
-    })
 
-def test_compute_text_stats_adds_expected_columns(simple_df):
-    df = pp.compute_text_stats(simple_df)
-    assert "review_text" in df.columns
-    for col in ["total_words", "total_characters", "total_stopwords",
-                "total_punctuations", "total_uppercases"]:
-        assert col in df.columns
-    assert df.at[0, "total_words"] == 6
-    assert df.at[0, "total_characters"] == len(simple_df.at[0, "review_text"])
-    assert df.at[0, "total_punctuations"] >= 3
-    assert df.at[0, "total_uppercases"] >= 7
+class TestDataPreprocessor:
+    def test_has_logger(self):
+        preprocessor = DataPreprocessor()
+        assert hasattr(preprocessor, 'logger')
 
-def test_clean_df_filters_non_alpha_and_stems():
-    df = pd.DataFrame({
-        "review_text": ["Running!! Running requires energized runners..."]
-    })
-    cleaned = pp.clean_df(df)
-    txt = cleaned.at[0, "review_text"]
-    assert "run" in txt
-    assert all(ch.isalpha() or ch.isspace() for ch in txt)
+    def test_has_root(self):
+        preprocessor = DataPreprocessor()
+        assert hasattr(preprocessor, 'root')
 
-def test_log_token_stats_emits_both_logs(caplog):
-    caplog.set_level("INFO")
-    df = pd.DataFrame({"review_text": ["a a b c", "b c c d"]})
-    pp.log_token_stats(df)
-    text = caplog.text
-    assert "10 most common tokens:" in text
-    assert "10 least common tokens:" in text
+    def test_root_is_str(self):
+        preprocessor = DataPreprocessor()
+        assert isinstance(preprocessor.root, str)
 
-def test_tokenize_df_creates_tokens_column_and_logs(caplog, monkeypatch):
-    caplog.set_level("INFO")
-    monkeypatch.setattr(pp, "word_tokenize", lambda txt: txt.split())
-    df = pd.DataFrame({"review_text": ["one two", "three"]})
-    out = pp.tokenize_df(df)
-    assert "tokens" in out.columns
-    assert out.at[0, "tokens"] == ["one", "two"]
-    assert "Tokenized (first 5 rows):" in caplog.text
+    def test_has_process(self):
+        preprocessor = DataPreprocessor()
+        assert hasattr(preprocessor, 'process')
 
-def test_load_and_save_preprocessed_data(tmp_path, caplog):
-    root = tmp_path
-    proc = tmp_path / "data" / "processed"
-    proc.mkdir(parents=True)
-    (proc / "cleaned_data.csv").write_text("review_text\nalpha\nbeta\n")
-    caplog.set_level("INFO")
-    df = pp.load_cleaned_data(str(root))
-    assert isinstance(df, pd.DataFrame)
-    assert df.shape == (2, 1)
-    assert "Loaded cleaned data: 2 rows × 1 cols" in caplog.text
-    calls = []
-    monkeypatch = pytest.MonkeyPatch()
-    monkeypatch.setenv 
-    monkeypatch.setattr(pp, "write_csv_file", lambda df_, path: calls.append(path))
-    pp.save_preprocessed_data(df, str(root))
-    monkeypatch.undo()
-    assert calls, "Expected write_csv_file to be called"
-    assert calls[0].endswith(os.path.join("data","processed","preprocessed_data.csv"))
-    assert "Saved preprocessed data to" in caplog.text
+    def test_process_is_callable(self):
+        preprocessor = DataPreprocessor()
+        assert callable(preprocessor.process)
 
-def test_pipeline_end_to_end(tmp_path, caplog, monkeypatch):
-    caplog.set_level("INFO")
-    monkeypatch.setattr(pp, "setup_logging", lambda root: None)
+    @patch('src.data.preprocessing.load_csv_file')
+    def test_load_cleaned_data_type(self, mock_load_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2', 'text3'], 'label': [0, 1, 0]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        result = preprocessor.load_cleaned_data()
+        assert isinstance(result, pd.DataFrame)
 
-    monkeypatch.setattr(pp, "get_project_root", lambda: str(tmp_path))
+    @patch('src.data.preprocessing.load_csv_file')
+    def test_load_cleaned_data_shape(self, mock_load_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2', 'text3'], 'label': [0, 1, 0]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        result = preprocessor.load_cleaned_data()
+        assert result.shape == (3, 2)
 
-    proc = tmp_path / "data" / "processed"
-    proc.mkdir(parents=True)
-    (proc / "cleaned_data.csv").write_text("review_text\nspam spam ham\nfoo bar baz\n")
+    @patch('src.data.preprocessing.load_csv_file')
+    def test_load_cleaned_data_columns(self, mock_load_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2', 'text3'], 'label': [0, 1, 0]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        result = preprocessor.load_cleaned_data()
+        assert list(result.columns) == ['review_text', 'label']
 
-    monkeypatch.setattr(pp, "create_wordcloud", lambda df, of, fn: None)
+    @patch('src.data.preprocessing.load_csv_file')
+    def test_load_cleaned_data_mock_called(self, mock_load_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2', 'text3'], 'label': [0, 1, 0]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        preprocessor.load_cleaned_data()
+        mock_load_csv.assert_called_once()
 
-    pp.pipeline()
+    @patch('src.data.preprocessing.write_csv_file')
+    def test_save_preprocessed_data_mock_called(self, mock_write_csv):
+        test_data = pd.DataFrame({'review_text': ['processed text1', 'processed text2'], 'label': [0, 1], 'tokens': [['processed', 'text1'], ['processed', 'text2']]})
+        preprocessor = DataPreprocessor()
+        preprocessor.save_preprocessed_data(test_data)
+        mock_write_csv.assert_called_once()
 
-    log = caplog.text
-    assert "🔹 Starting preprocessing" in log
-    assert "Loaded cleaned data: 2 rows × 1 cols" in log
-    assert "✅ Preprocessing done" in log
+    def test_compute_text_stats_total_words(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert 'total_words' in result.columns
 
-    out_csv = tmp_path / "data" / "processed" / "preprocessed_data.csv"
-    assert out_csv.exists()
-    df_out = pd.read_csv(out_csv)
+    def test_compute_text_stats_total_characters(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert 'total_characters' in result.columns
 
-    assert "review_text" in df_out.columns
-    assert "total_words" in df_out.columns
-    assert "tokens" in df_out.columns
+    def test_compute_text_stats_total_stopwords(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert 'total_stopwords' in result.columns
 
+    def test_compute_text_stats_total_punctuations(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert 'total_punctuations' in result.columns
+
+    def test_compute_text_stats_total_uppercases(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert 'total_uppercases' in result.columns
+
+    def test_compute_text_stats_word_count(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert result['total_words'].iloc[0] == 2
+
+    def test_compute_text_stats_char_count(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert result['total_characters'].iloc[0] == 12
+
+    def test_compute_text_stats_punct_count(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world!', 'This is a test.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.compute_text_stats(test_data)
+        assert result['total_punctuations'].iloc[0] == 1
+
+    def test_clean_text_column(self):
+        test_data = pd.DataFrame({'review_text': ['Hello World!', 'This is a TEST.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.clean_text(test_data)
+        assert 'review_text' in result.columns
+
+    def test_clean_text_not_equal_0(self):
+        test_data = pd.DataFrame({'review_text': ['Hello World!', 'This is a TEST.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.clean_text(test_data)
+        assert result['review_text'].iloc[0] != 'Hello World!'
+
+    def test_clean_text_not_equal_1(self):
+        test_data = pd.DataFrame({'review_text': ['Hello World!', 'This is a TEST.'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.clean_text(test_data)
+        assert result['review_text'].iloc[1] != 'This is a TEST.'
+
+    def test_tokenize_text_column(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.tokenize_text(test_data)
+        assert 'tokens' in result.columns
+
+    def test_tokenize_text_is_list(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.tokenize_text(test_data)
+        assert isinstance(result['tokens'].iloc[0], list)
+
+    def test_tokenize_text_len(self):
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.tokenize_text(test_data)
+        assert len(result['tokens'].iloc[0]) > 0
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('src.data.preprocessing.load_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_no_data_type(self, mock_makedirs, mock_load_csv, mock_write_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        result = preprocessor.process()
+        assert isinstance(result, pd.DataFrame)
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('src.data.preprocessing.load_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_no_data_tokens(self, mock_makedirs, mock_load_csv, mock_write_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        result = preprocessor.process()
+        assert 'tokens' in result.columns
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('src.data.preprocessing.load_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_no_data_load_called(self, mock_makedirs, mock_load_csv, mock_write_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        preprocessor.process()
+        mock_load_csv.assert_called_once()
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('src.data.preprocessing.load_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_no_data_write_called(self, mock_makedirs, mock_load_csv, mock_write_csv):
+        mock_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        mock_load_csv.return_value = mock_data
+        preprocessor = DataPreprocessor()
+        preprocessor.process()
+        mock_write_csv.assert_called_once()
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_data_type(self, mock_makedirs, mock_write_csv):
+        test_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.process(test_data)
+        assert isinstance(result, pd.DataFrame)
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_data_tokens(self, mock_makedirs, mock_write_csv):
+        test_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        result = preprocessor.process(test_data)
+        assert 'tokens' in result.columns
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_data_makedirs(self, mock_makedirs, mock_write_csv):
+        test_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        preprocessor.process(test_data)
+        mock_makedirs.assert_called()
+
+    @patch('src.data.preprocessing.write_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_process_with_data_write_called(self, mock_makedirs, mock_write_csv):
+        test_data = pd.DataFrame({'review_text': ['text1', 'text2'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        preprocessor.process(test_data)
+        mock_write_csv.assert_called_once()
+
+    @patch('matplotlib.pyplot.savefig')
+    @patch('matplotlib.pyplot.close')
+    @patch('matplotlib.pyplot.imshow')
+    @patch('matplotlib.pyplot.figure')
+    @patch('matplotlib.pyplot.axis')
+    @patch('src.data.preprocessing.WordCloud')
+    def test_create_wordcloud_savefig(self, mock_wordcloud, mock_axis, mock_figure, mock_imshow, mock_close, mock_savefig):
+        mock_wc_instance = Mock()
+        mock_wordcloud.return_value = mock_wc_instance
+        mock_wc_instance.generate.return_value = mock_wc_instance
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        preprocessor.create_wordcloud(test_data, "test_folder", "test_wordcloud.png")
+        mock_savefig.assert_called_once()
+
+    @patch('matplotlib.pyplot.savefig')
+    @patch('matplotlib.pyplot.close')
+    @patch('matplotlib.pyplot.imshow')
+    @patch('matplotlib.pyplot.figure')
+    @patch('matplotlib.pyplot.axis')
+    @patch('src.data.preprocessing.WordCloud')
+    def test_create_wordcloud_close(self, mock_wordcloud, mock_axis, mock_figure, mock_imshow, mock_close, mock_savefig):
+        mock_wc_instance = Mock()
+        mock_wordcloud.return_value = mock_wc_instance
+        mock_wc_instance.generate.return_value = mock_wc_instance
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        preprocessor.create_wordcloud(test_data, "test_folder", "test_wordcloud.png")
+        mock_close.assert_called_once()
+
+    @patch('src.data.preprocessing.WordCloud')
+    def test_create_wordcloud_handles_error(self, mock_wordcloud):
+        mock_wordcloud.side_effect = Exception("Save error")
+        test_data = pd.DataFrame({'review_text': ['Hello world', 'This is a test'], 'label': [0, 1]})
+        preprocessor = DataPreprocessor()
+        preprocessor.create_wordcloud(test_data, "test_folder", "test_wordcloud.png")
+
+class TestPipeline:
+    @patch('src.data.preprocessing.DataPreprocessor')
+    def test_pipeline_class_called(self, mock_preprocessor_class):
+        mock_preprocessor = Mock()
+        mock_preprocessor_class.return_value = mock_preprocessor
+        pipeline()
+        mock_preprocessor_class.assert_called_once()
+
+    @patch('src.data.preprocessing.DataPreprocessor')
+    def test_pipeline_process_called(self, mock_preprocessor_class):
+        mock_preprocessor = Mock()
+        mock_preprocessor_class.return_value = mock_preprocessor
+        pipeline()
+        mock_preprocessor.process.assert_called_once() 

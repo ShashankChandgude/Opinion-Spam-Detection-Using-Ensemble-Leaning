@@ -1155,3 +1155,80 @@ review_hash_id                2501
 2025-05-31 00:56:42,159 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
 2025-05-31 00:56:42,219 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data\processed\preprocessed_data.csv
 2025-05-31 00:56:42,219 INFO: ✅ Preprocessing done
+2025-07-11 20:30:48,945 INFO: 🔹 Starting preprocessing
+2025-07-11 20:30:49,017 INFO: Loaded cleaned data: 1596 rows × 2 cols
+2025-07-11 20:30:55,885 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-07-11 20:30:55,958 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-07-11 20:30:55,958 INFO: 10 least common tokens: hitch, understood, toxic, prestig, monstrou, optim, memo, soo, yike, blah
+2025-07-11 20:37:15,605 INFO: 🔹 Starting preprocessing
+2025-07-11 20:37:15,669 INFO: Loaded cleaned data: 1596 rows × 2 cols
+2025-07-11 20:37:20,931 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-07-11 20:37:20,989 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-07-11 20:37:20,990 INFO: 10 least common tokens: sublim, down, positv, slimmi, millinum, hade, finer, pointless, paraphernalia, workabl
+2025-07-11 20:37:37,746 INFO: 🔹 Starting preprocessing
+2025-07-11 20:37:37,781 INFO: Loaded cleaned data: 1596 rows × 2 cols
+2025-07-11 20:37:41,411 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-07-11 20:37:41,463 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-07-11 20:37:41,463 INFO: 10 least common tokens: honeycomb, grandchildren, flith, parit, toddler, ticki, facto, em, congreg, vintag
+2025-07-11 20:38:04,242 INFO: 🔹 Starting preprocessing
+2025-07-11 20:38:04,283 INFO: Loaded cleaned data: 1596 rows × 2 cols
+2025-07-11 20:38:08,452 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-07-11 20:38:08,514 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-07-11 20:38:08,514 INFO: 10 least common tokens: yum, lush, hovel, hostess, rainfal, bow, frumpi, acess, emblem, welt
+2025-07-11 20:38:09,345 WARNING: WordCloud generation failed: 'TransposedFont' object has no attribute 'getbbox'. Skipping wordcloud creation.
+2025-07-11 20:38:09,504 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data\processed\preprocessed_data.csv
+2025-07-11 20:38:09,504 INFO: ✅ Preprocessing done
+2025-07-12 03:19:58,290 INFO: Dropped 1 duplicate rows
+2025-07-12 03:19:58,303 INFO: Dropped 1 duplicate rows
+2025-07-12 03:19:58,325 INFO: Dropped 0 duplicate rows
+2025-07-12 03:19:58,327 INFO: Cleaned data: 1 rows × 2 cols
+2025-07-12 03:19:58,329 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-07-12 03:19:58,342 INFO: Dropped 0 duplicate rows
+2025-07-12 03:19:58,345 INFO: Cleaned data: 1 rows × 2 cols
+2025-07-12 03:19:58,346 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-07-12 03:19:58,356 INFO: 🔹 Starting data cleaning phase
+2025-07-12 03:19:58,356 INFO: Loaded raw data: 1 rows × 2 cols
+2025-07-12 03:19:58,358 INFO: Dropped 0 duplicate rows
+2025-07-12 03:19:58,360 INFO: Cleaned data: 1 rows × 2 cols
+2025-07-12 03:19:58,361 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-07-12 03:19:58,371 INFO: 🔹 Starting data cleaning phase
+2025-07-12 03:19:58,372 INFO: Loaded raw data: 1 rows × 2 cols
+2025-07-12 03:19:58,376 INFO: Dropped 0 duplicate rows
+2025-07-12 03:19:58,378 INFO: Cleaned data: 1 rows × 2 cols
+2025-07-12 03:19:58,379 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-07-12 03:19:58,391 INFO: 🔹 Starting data cleaning phase
+2025-07-12 03:19:58,392 INFO: Loaded raw data: 1 rows × 2 cols
+2025-07-12 03:19:58,398 INFO: Dropped 0 duplicate rows
+2025-07-12 03:19:58,401 INFO: Cleaned data: 1 rows × 2 cols
+2025-07-12 03:19:58,402 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-07-12 03:20:02,384 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_verified_purchase_di0\vp_distribution.png
+2025-07-12 03:20:02,526 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_verified_purchase_di1\empty_vp.png
+2025-07-12 03:20:02,719 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_verified_purchase_di2\single_vp.png
+2025-07-12 03:20:03,242 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_review_length_compar0\review_length.png
+2025-07-12 03:20:04,016 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_review_length_compar1\empty_length.png
+2025-07-12 03:20:04,516 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_review_length_compar2\missing_false.png
+2025-07-12 03:20:04,907 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-130\test_plot_review_length_compar3\missing_true.png
+2025-07-12 03:20:19,126 INFO: Optimized LR: {'C': 0.5}
+2025-07-12 03:20:19,162 INFO: Optimized LR: {'C': 0.5}
+2025-07-12 03:20:19,204 INFO: Optimized LR: {'C': 0.5}
+2025-07-12 03:20:19,235 INFO: Optimized LR: {'C': 0.5}

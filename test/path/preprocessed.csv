@@ -1,0 +1,3 @@
+review_text,label,tokens
+processed text1,0,"['processed', 'text1']"
+processed text2,1,"['processed', 'text2']"

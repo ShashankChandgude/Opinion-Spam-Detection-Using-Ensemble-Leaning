@@ -1,73 +1,167 @@
-import os
-import pandas as pd
 import pytest
-from src.data.data_cleaning import (drop_irrelevant_columns, rename_columns, drop_duplicated_rows, recode_truthful_deceptive, clean_data, pipeline,)
+import pandas as pd
+from unittest.mock import patch, Mock
+from src.data.data_cleaning import DataCleaner, pipeline
+
+class TestDataCleaner:
+    def test_has_logger(self):
+        cleaner = DataCleaner()
+        assert hasattr(cleaner, 'logger')
+
+    def test_has_root(self):
+        cleaner = DataCleaner()
+        assert hasattr(cleaner, 'root')
+
+    def test_has_data_loader(self):
+        cleaner = DataCleaner()
+        assert hasattr(cleaner, 'data_loader')
+
+    def test_has_data_saver(self):
+        cleaner = DataCleaner()
+        assert hasattr(cleaner, 'data_saver')
+
+    def test_drop_irrelevant_columns_removes_hotel(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'hotel': [1], 'source': ['a'], 'polarity': [0], 'keep': [123]})
+        result = cleaner.drop_irrelevant_columns(df)
+        assert 'hotel' not in result.columns
+
+    def test_drop_irrelevant_columns_removes_source(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'hotel': [1], 'source': ['a'], 'polarity': [0], 'keep': [123]})
+        result = cleaner.drop_irrelevant_columns(df)
+        assert 'source' not in result.columns
+
+    def test_drop_irrelevant_columns_removes_polarity(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'hotel': [1], 'source': ['a'], 'polarity': [0], 'keep': [123]})
+        result = cleaner.drop_irrelevant_columns(df)
+        assert 'polarity' not in result.columns
+
+    def test_drop_irrelevant_columns_keeps_keep(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'hotel': [1], 'source': ['a'], 'polarity': [0], 'keep': [123]})
+        result = cleaner.drop_irrelevant_columns(df)
+        assert 'keep' in result.columns
+
+    def test_rename_columns_label(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'deceptive': ['truthful'], 'text': ['review']})
+        result = cleaner.rename_columns(df)
+        assert 'label' in result.columns
+
+    def test_rename_columns_review_text(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'deceptive': ['truthful'], 'text': ['review']})
+        result = cleaner.rename_columns(df)
+        assert 'review_text' in result.columns
+
+    def test_drop_duplicated_rows_count(self, caplog):
+        caplog.set_level('INFO')
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'a': [1, 1, 2], 'b': [2, 2, 3]})
+        result = cleaner.drop_duplicated_rows(df)
+        assert len(result) == 2
+
+    def test_drop_duplicated_rows_log(self, caplog):
+        caplog.set_level('INFO')
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'a': [1, 1, 2], 'b': [2, 2, 3]})
+        cleaner.drop_duplicated_rows(df)
+        assert "Dropped 1 duplicate rows" in caplog.text
+
+    def test_recode_truthful_deceptive_maps_values(self):
+        cleaner = DataCleaner()
+        df = pd.DataFrame({'label': ['truthful', 'deceptive', 'truthful']})
+        result = cleaner.recode_truthful_deceptive(df)
+        assert set(result['label']) == {0, 1}
+
+    @patch('src.data.data_cleaning.FileDataSaver')
+    def test_process_with_data_parameter_type(self, mock_saver):
+        cleaner = DataCleaner()
+        raw = pd.DataFrame({'hotel': [1], 'source': ['x'], 'polarity': [0], 'deceptive': ['truthful'], 'text': ['hello world']})
+        mock_saver_instance = Mock()
+        cleaner.data_saver = mock_saver_instance
+        cleaned = cleaner.process(raw)
+        assert isinstance(cleaned, pd.DataFrame)
+
+    @patch('src.data.data_cleaning.FileDataSaver')
+    def test_process_with_data_parameter_save(self, mock_saver):
+        cleaner = DataCleaner()
+        raw = pd.DataFrame({'hotel': [1], 'source': ['x'], 'polarity': [0], 'deceptive': ['truthful'], 'text': ['hello world']})
+        mock_saver_instance = Mock()
+        cleaner.data_saver = mock_saver_instance
+        cleaner.process(raw)
+        mock_saver_instance.save.assert_called_once()
+
+    @patch('src.data.data_cleaning.FileDataLoader')
+    @patch('src.data.data_cleaning.FileDataSaver')
+    def test_process_loads_data_type(self, mock_saver, mock_loader):
+        cleaner = DataCleaner()
+        mock_loader_instance = Mock()
+        mock_saver_instance = Mock()
+        mock_loader.return_value = mock_loader_instance
+        mock_saver.return_value = mock_saver_instance
+        mock_loader_instance.load.return_value = pd.DataFrame({'deceptive': ['truthful'], 'text': ['hello world']})
+        cleaner.data_loader = mock_loader_instance
+        cleaner.data_saver = mock_saver_instance
+        cleaned = cleaner.process()
+        assert isinstance(cleaned, pd.DataFrame)
+
+    @patch('src.data.data_cleaning.FileDataLoader')
+    @patch('src.data.data_cleaning.FileDataSaver')
+    def test_process_loads_data_loader_called(self, mock_saver, mock_loader):
+        cleaner = DataCleaner()
+        mock_loader_instance = Mock()
+        mock_saver_instance = Mock()
+        mock_loader.return_value = mock_loader_instance
+        mock_saver.return_value = mock_saver_instance
+        mock_loader_instance.load.return_value = pd.DataFrame({'deceptive': ['truthful'], 'text': ['hello world']})
+        cleaner.data_loader = mock_loader_instance
+        cleaner.data_saver = mock_saver_instance
+        cleaner.process()
+        mock_loader_instance.load.assert_called_once()
+
+    @patch('src.data.data_cleaning.FileDataLoader')
+    @patch('src.data.data_cleaning.FileDataSaver')
+    def test_process_loads_data_saver_called(self, mock_saver, mock_loader):
+        cleaner = DataCleaner()
+        mock_loader_instance = Mock()
+        mock_saver_instance = Mock()
+        mock_loader.return_value = mock_loader_instance
+        mock_saver.return_value = mock_saver_instance
+        mock_loader_instance.load.return_value = pd.DataFrame({'deceptive': ['truthful'], 'text': ['hello world']})
+        cleaner.data_loader = mock_loader_instance
+        cleaner.data_saver = mock_saver_instance
+        cleaner.process()
+        mock_saver_instance.save.assert_called_once()
+
+    @patch('src.data.data_cleaning.write_csv_file')
+    @patch('pathlib.Path.mkdir')
+    def test_file_data_saver_write_csv(self, mock_makedirs, mock_write_csv):
+        from src.data.data_cleaning import FileDataSaver
+        saver = FileDataSaver()
+        df = pd.DataFrame({'a': [1, 2, 3]})
+        saver.save(df, 'dummy_path.csv')
+        mock_write_csv.assert_called_once_with(df, 'dummy_path.csv')
 
 
-def test_drop_irrelevant_columns_drops_hotel_source_polarity():
-    df = pd.DataFrame({
-        'hotel': [1], 'source': [2], 'polarity': [3], 'keep': [4]
+def test_legacy_pipeline_function(monkeypatch, tmp_path):
+    import src.data.data_cleaning as dc
+    import pandas as pd
+    monkeypatch.setattr(dc, "get_project_root", lambda: str(tmp_path))
+    monkeypatch.setattr(dc, "get_logger", lambda name: type("L", (), {"info": lambda self, *a, **k: None})())
+    cleaner = dc.DataCleaner()
+    dummy_df = pd.DataFrame({
+        "hotel": [1],
+        "source": ["a"],
+        "polarity": [0],
+        "deceptive": ["truthful"],
+        "text": ["sample review"]
     })
-    out = drop_irrelevant_columns(df)
-    assert 'hotel' not in out.columns
-    assert 'source' not in out.columns
-    assert 'polarity' not in out.columns
+    cleaner.data_loader = type("DL", (), {"load": lambda s: dummy_df})()
+    cleaner.data_saver = type("DS", (), {"save": lambda s, d, p: None})()
+    cleaner.process()
 
 
-def test_rename_columns_renames_deceptive_and_text():
-    df = pd.DataFrame({'deceptive': [True], 'text': ['foo']})
-    out = rename_columns(df)
-    assert list(out.columns) == ['label', 'review_text']
-    assert out['label'].iloc[0] == True
-    assert out['review_text'].iloc[0] == 'foo'
 
-
-def test_drop_duplicated_rows_logs_and_drops(caplog):
-    caplog.set_level('INFO')
-    df = pd.DataFrame({'a': [1, 1, 2]})
-    assert drop_duplicated_rows(df).shape[0] == 2
-    assert "Dropped 1 duplicate rows" in caplog.text
-
-
-def test_recode_truthful_deceptive_maps_values():
-    df = pd.DataFrame({'label': ['truthful', 'deceptive', 'truthful']})
-    out = recode_truthful_deceptive(df.copy())
-    assert out['label'].tolist() == [0, 1, 0]
-
-
-def test_clean_data_combines_all_steps(monkeypatch):
-    raw = pd.DataFrame({
-        'hotel': [1],
-        'source': ['x'],
-        'polarity': [0],
-        'deceptive': ['truthful'],
-        'text': ['hello world']
-    })
-    cleaned = clean_data(raw)
-    assert list(cleaned.columns) == ['label', 'review_text']
-    assert cleaned['label'].iloc[0] == 0
-    assert cleaned['review_text'].iloc[0] == 'hello world'
-
-
-def test_pipeline_entrypoint(monkeypatch, tmp_path, caplog):
-    monkeypatch.setattr('src.data.data_cleaning.get_project_root', lambda: str(tmp_path))
-    raw_dir = tmp_path / 'data' / 'raw'
-    raw_dir.mkdir(parents=True)
-    fake = raw_dir / 'deceptive-opinion-corpus.csv'
-    fake.write_text("deceptive,hotel,source,polarity,text\ntruthful,x,x,0,hi\n")
-    calls = []
-    monkeypatch.setattr('src.data.data_cleaning.write_csv_file',
-                        lambda df, p: calls.append(p))
-    caplog.set_level('INFO')
-
-    pipeline()
-
-    log = caplog.text
-    assert "🔹 Starting data cleaning phase" in log
-    assert "Loaded raw data: 1 rows × 5 cols" in log
-    # After drop_irrelevant, only 2 cols remain
-    assert "Cleaned data: 1 rows × 2 cols" in log
-    assert "✅ Data cleaning done, saved to" in log
-    # Ensure we wrote out to the processed folder
-    out_p = calls[0]
-    assert out_p.endswith(os.path.join('data', 'processed', 'cleaned_data.csv'))

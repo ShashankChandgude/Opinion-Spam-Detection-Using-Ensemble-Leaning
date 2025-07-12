@@ -23,7 +23,7 @@ def clean():
         shutil.rmtree(d, ignore_errors=True)
 @task
 def test():
-    sh(f'"{sys.executable}" -m pytest --cov=src --cov-report=term --cov-report=html')
+    sh(f'"{sys.executable}" -m pytest --cov=src --cov-report=term --cov-report=html --disable-warnings')
 
 
 cmdopts(

@@ -4,9 +4,14 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from src.utils.config import config
+from src.utils.logging_config import get_logger
 
-def cross_validate_models(X_vec, y, classifiers: dict, n_splits: int = 5) -> dict:
-    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+def cross_validate_models(X_vec, y, classifiers: dict, n_splits: int = None) -> dict:
+    n_splits = n_splits or config.CV_SPLITS
+    logger = get_logger(__name__)
+    
+    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=config.RANDOM_STATE)
     results = {}
 
     for name, clf in classifiers.items():

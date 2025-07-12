@@ -1,6 +1,8 @@
 import numpy as np
 import random
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
+from src.utils.config import config
+from src.utils.logging_config import get_logger
 
 HYPERPARAMS = {
     'Logistic Regression': {
@@ -40,23 +42,28 @@ HYPERPARAMS = {
     }
 }
 
-def optimize_hyperparameters( classifier_name: str, classifier_class, hyperparams: dict, X_train, y_train, cv_splits: int = 10, n_iter: int = 50):
-    cv = StratifiedKFold(n_splits=cv_splits, shuffle=True, random_state=42)
+def optimize_hyperparameters(classifier_name: str, classifier_class, hyperparams: dict, X_train, y_train, cv_splits=None, n_iter=None):
+    cv_splits = cv_splits or config.CV_SPLITS
+    n_iter = n_iter or config.N_ITER
+    
+    cv = StratifiedKFold(n_splits=cv_splits, shuffle=True, random_state=config.RANDOM_STATE)
     random_search = RandomizedSearchCV(
         estimator=classifier_class(),
         param_distributions=hyperparams,
         n_iter=n_iter,
         scoring='accuracy',
         cv=cv,
-        random_state=42,
+        random_state=config.RANDOM_STATE,
         n_jobs=-1
     )
     random_search.fit(X_train, y_train)
     return random_search.best_estimator_, random_search.best_params_
 
-def optimize_all_classifiers(base_classifiers: dict, hyperparams: dict, X_train, y_train, cv_splits: int = 10, n_iter: int = 50):
+def optimize_all_classifiers(base_classifiers: dict, hyperparams: dict, X_train, y_train, cv_splits=None, n_iter=None):
+    logger = get_logger(__name__)
     best_models = {}
     best_params_dict = {}
+    
     for name, clf in base_classifiers.items():
         best_model, best_params = optimize_hyperparameters(
             name,
@@ -69,5 +76,6 @@ def optimize_all_classifiers(base_classifiers: dict, hyperparams: dict, X_train,
         )
         best_models[name] = best_model
         best_params_dict[name] = best_params
-        print(f"Optimized {name}: {best_params}")
+        logger.info(f"Optimized {name}: {best_params}")
+    
     return best_models, best_params_dict
