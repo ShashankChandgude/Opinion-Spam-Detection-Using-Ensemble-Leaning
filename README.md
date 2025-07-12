@@ -164,7 +164,3 @@ The system achieves excellent performance with ensemble methods:
 3. Make your changes
 4. Ensure all tests pass (`paver test`)
 5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
