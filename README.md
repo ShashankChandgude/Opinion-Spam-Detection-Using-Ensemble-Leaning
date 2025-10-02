@@ -9,7 +9,7 @@ This project uses a variety of base classifiers (including Logistic Regression, 
 - **Bagging** is applied to each base classifier to reduce variance.
 - **Stacking** combines all optimized base models using a meta-estimator (defaulting to Logistic Regression) to produce a robust final prediction.
 
-Every major step is logged to `output/log.txt` using a dedicated logger module, and all visualizations (such as cross-validation plots and error curves) are saved in the `output/plots` directory.
+Every major step is logged to `output/log.txt` using a dedicated logger module, and all visualizations and results are saved in timestamped run directories under `output/runs/` for complete experiment tracking and reproducibility.
 
 ## Project Structure
 
@@ -77,6 +77,9 @@ The project is organized into distinct modules that adhere to SOLID principles:
 - **src/utils/pipeline_orchestrator.py:**  
   Orchestrates the entire pipeline execution with proper error handling.
 
+- **src/utils/json_utils.py:**  
+  Provides JSON serialization utilities for saving complex data structures.
+
 ### Main Application
 - **main.py:**  
   Orchestrates the entire pipeline:
@@ -87,15 +90,58 @@ The project is organized into distinct modules that adhere to SOLID principles:
   - Trains bagging ensembles for each classifier and a stacking ensemble that combines all optimized models.
   - Evaluates each model and ensemble.
   - Computes and plots error curves.
-  - Logs every step and saves all visualizations to `output/plots`.
+  - Saves all results, visualizations, and metadata in timestamped run directories.
 
-## Logging and Visualizations
+## Experiment Tracking and Results Management
 
-- **Logging:**  
+- **Comprehensive Logging:**  
   Every major step and output is logged to `output/log.txt` via the centralized logging module. This ensures that the pipeline execution is traceable and debuggable.
 
-- **Visualizations:**  
-  All generated visual outputs (e.g., cross-validation results, error curves, confusion matrices) are automatically saved in the `output/plots` directory.
+- **Timestamped Run Management:**  
+  Each pipeline execution creates a unique timestamped directory under `output/runs/` (e.g., `20251002-000839/`) containing:
+  - **Performance Metrics**: CSV and JSON files with detailed results for all models
+  - **Visualizations**: Cross-validation plots, error curves, and confusion matrices
+  - **Model Artifacts**: Best hyperparameters, predictions, and classification reports
+  - **Run Manifest**: Complete metadata including data checksums and configuration
+  - **Reproducibility**: Full experiment tracking for complete reproducibility
+
+- **Data Integrity:**  
+  Each run includes SHA256 checksums of input data to ensure experiment reproducibility and data integrity verification.
+
+## Current Project Structure
+
+```
+Opinion-Spam-Detection-Using-Ensemble-Leaning/
+├── main.py                          # Main application entry point
+├── pavement.py                      # Build automation and task runner
+├── pytest.ini                       # Test configuration
+├── requirements.txt                 # Production dependencies
+├── dev-requirements.txt             # Development dependencies
+├── README.md                        # This documentation
+├── data/
+│   ├── raw/
+│   │   └── deceptive-opinion-corpus.csv  # Original dataset
+│   └── processed/
+│       ├── cleaned_data.csv         # Cleaned dataset
+│       └── preprocessed_data.csv     # Preprocessed dataset
+├── src/                             # Source code modules
+│   ├── data/                        # Data processing modules
+│   ├── evaluation/                  # Model evaluation modules
+│   ├── features/                    # Feature engineering modules
+│   ├── training/                    # Model training modules
+│   ├── utils/                       # Utility modules
+│   └── pipeline.py                  # Main ML pipeline
+├── tests/                           # Comprehensive test suite
+└── output/
+    ├── log.txt                      # Main execution log
+    ├── data_preprocessing/          # Preprocessing visualizations
+    └── runs/                        # Timestamped experiment results
+        └── 20251002-000839/         # Latest run artifacts
+            ├── plots/               # Visualizations
+            ├── *.csv                # Performance metrics
+            ├── *.json               # Structured results
+            └── run_manifest.json    # Run metadata
+```
 
 ## How to Run
 
@@ -132,18 +178,32 @@ The project is organized into distinct modules that adhere to SOLID principles:
 
 ## Recent Improvements
 
+### Professional Experiment Management
+- **Timestamped Run Tracking**: Each pipeline execution creates a unique timestamped directory with complete experiment metadata
+- **Comprehensive Artifact Management**: All results, visualizations, and model artifacts are systematically saved and organized
+- **Data Integrity Verification**: SHA256 checksums ensure experiment reproducibility and data integrity
+- **Professional Output Structure**: Clean, organized output management suitable for production environments
+
 ### Code Quality Enhancements
 - **Test Suite Refactoring**: All 361 tests now follow SOLID principles with focused, single-purpose test functions
 - **Improved Maintainability**: Each test function has only one or two assertions for better debugging
 - **Clean Code**: Removed unnecessary comments and docstrings following minimal code style preferences
 - **Bug Fixes**: Resolved critical logging configuration issues and import errors
+- **Project Cleanup**: Removed unused files and directories for a cleaner, more professional structure
 
 ### Performance Results
-The system achieves excellent performance with ensemble methods:
-- **Stacking Ensemble**: 88.13% Accuracy (best overall)
-- **Support Vector Machine**: 87.19% Accuracy  
-- **Logistic Regression**: 87.19% Accuracy
-- **Multilayer Perceptron**: 86.56% Accuracy
+The system achieves excellent performance with ensemble methods (latest run: 2025-10-02):
+
+| Model Type | Accuracy | Precision | Recall | F1-Score |
+|------------|----------|-----------|--------|----------|
+| **Stacking Ensemble** | **87.81%** | **87.93%** | **87.81%** | **87.80%** |
+| Support Vector Machine | 87.19% | 87.20% | 87.19% | 87.19% |
+| Logistic Regression | 87.19% | 87.22% | 87.19% | 87.18% |
+| Multilayer Perceptron | 86.88% | 87.08% | 86.88% | 86.86% |
+| Random Forest | 83.44% | 83.92% | 83.44% | 83.38% |
+| Multinomial Naive Bayes | 85.31% | 86.06% | 85.31% | 85.24% |
+| K-Nearest Neighbors | 78.75% | 79.30% | 78.75% | 78.65% |
+| Decision Tree | 67.50% | 67.78% | 67.50% | 67.37% |
 
 ### Code Coverage
 - **94% Code Coverage** achieved across all modules
@@ -154,8 +214,10 @@ The system achieves excellent performance with ensemble methods:
 
 ✅ **Fully Functional**: All components working correctly  
 ✅ **Well Tested**: Comprehensive test suite with 94% coverage  
-✅ **Production Ready**: Robust error handling and logging  
+✅ **Production Ready**: Robust error handling, logging, and experiment tracking  
 ✅ **Maintainable**: Clean, modular code following SOLID principles  
+✅ **Professional Grade**: Complete experiment management with timestamped runs and artifact tracking  
+✅ **Employer Ready**: Clean structure, comprehensive documentation, and proven performance  
 
 ## Contributing
 
@@ -164,7 +226,3 @@ The system achieves excellent performance with ensemble methods:
 3. Make your changes
 4. Ensure all tests pass (`paver test`)
 5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
