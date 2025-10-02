@@ -172,4 +172,35 @@ class TestHelpers:
         filename = "error_test.png"
         
         with pytest.raises(Exception, match="Save error"):
-            plot_review_length_comparison(data, out_folder, filename) 
+            plot_review_length_comparison(data, out_folder, filename)
+    
+    
+    def test_plot_verified_purchase_distribution_missing_column_warning(self, tmp_path, caplog):
+        """Test warning when verified_purchase column is missing."""
+        caplog.set_level('WARNING')
+        
+        data = pd.DataFrame({
+            'other_column': [1, 2, 3, 4, 5]
+        })
+        
+        out_folder = str(tmp_path)
+        filename = "vp_distribution.png"
+        
+        plot_verified_purchase_distribution(data, out_folder, filename)
+        
+        assert "verified_purchase column not found in data, skipping plot" in caplog.text
+    
+    def test_plot_review_length_comparison_missing_columns_warning(self, tmp_path, caplog):
+        """Test warning when required columns are missing."""
+        caplog.set_level('WARNING')
+        
+        data = pd.DataFrame({
+            'other_column': [1, 2, 3, 4, 5]
+        })
+        
+        out_folder = str(tmp_path)
+        filename = "review_length_comparison.png"
+        
+        plot_review_length_comparison(data, out_folder, filename)
+        
+        assert "Required columns not found in data, skipping review length plot" in caplog.text 

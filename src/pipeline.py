@@ -42,6 +42,7 @@ class ModelPipeline:
         self.logger.info(f"Starting model pipeline with vectorizer={vectorizer_type}, test_size={test_size}")
 
         vectorizer, X_train_vec, X_test_vec, y_train, y_test, raw_data = load_and_vectorize_data(
+            preprocessed_data=preprocessed_data,
             test_size=test_size,
             vectorizer_type=vectorizer_type,
             random_state=config.RANDOM_STATE
@@ -89,7 +90,7 @@ class ModelPipeline:
         self.logger.info("\nOptimized model results on test set:")
         for name, model in best_models.items():
             metrics = evaluate_model(model, X_test_vec, y_test)
-            self.logger.info(f"• {name:<25}  {metrics}")
+            self.logger.info(f"- {name:<25}  {metrics}")
 
         bagging_ensembles, stacking_ensemble = train_all_ensembles(
             BASE_CLASSIFIERS,
@@ -199,7 +200,7 @@ class ModelPipeline:
         with open(os.path.join(results_dir, "run_manifest.json"), "w") as f:
             json.dump(manifest, f, indent=2, default=to_serializable)
 
-        self.logger.info(f"\n✅ All artifacts saved under: {results_dir}")
+        self.logger.info(f"\nAll artifacts saved under: {results_dir}")
         self.logger.info(f"   Plots saved under: {plots_dir}")
 
         return {
@@ -219,12 +220,12 @@ class ModelPipeline:
     def _print_evaluation_results(self, opt_results, bag_results, stack_result):
         self.logger.info("\nOptimized base classifiers on test set:")
         for name, m in opt_results.items():
-            self.logger.info(f"• {name:<25}  {m}")
+            self.logger.info(f"- {name:<25}  {m}")
         self.logger.info("\nBagging ensembles on test set:")
         for name, m in bag_results.items():
-            self.logger.info(f"• {name:<25}  {m}")
+            self.logger.info(f"- {name:<25}  {m}")
         self.logger.info("\nStacking ensemble on test set:")
-        self.logger.info(f"• Stacking                 {stack_result}")
+        self.logger.info(f"- Stacking                 {stack_result}")
 
 
 model_pipeline = ModelPipeline()

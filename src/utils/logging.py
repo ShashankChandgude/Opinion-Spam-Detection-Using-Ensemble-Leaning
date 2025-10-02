@@ -1,17 +1,7 @@
 import logging
-import sys
-from src.utils.config import config
+from functools import lru_cache
 
-log_file_path = config.LOG_FILE
-
-logging.root.handlers.clear()
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler(log_file_path, encoding='utf-8'),
-        logging.StreamHandler()
-    ],
-    force=True
-)
+@lru_cache(maxsize=128)
+def get_logger(name: str) -> logging.Logger:
+    """Get a logger instance. Use setup_logging() to configure handlers."""
+    return logging.getLogger(name)

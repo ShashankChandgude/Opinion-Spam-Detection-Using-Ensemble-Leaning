@@ -1341,3 +1341,699 @@ Stacking ensemble result: {'Accuracy': 0.878125, 'Precision': 0.8793252086680512
 2025-10-02 00:30:50,096 INFO: Optimized LR: {'C': 0.5}
 2025-10-02 00:30:50,138 INFO: Optimized LR: {'C': 0.5}
 2025-10-02 00:30:50,165 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:27:08,018 INFO: Dropped 1 duplicate rows
+2025-10-02 01:27:08,045 INFO: Dropped 1 duplicate rows
+2025-10-02 01:27:08,064 INFO: Dropped 0 duplicate rows
+2025-10-02 01:27:08,065 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:27:08,067 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:27:08,074 INFO: Dropped 0 duplicate rows
+2025-10-02 01:27:08,076 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:27:08,077 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:27:08,083 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:27:08,084 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:27:08,085 INFO: Dropped 0 duplicate rows
+2025-10-02 01:27:08,087 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:27:08,089 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:27:08,094 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:27:08,096 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:27:08,100 INFO: Dropped 0 duplicate rows
+2025-10-02 01:27:08,101 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:27:08,103 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:27:08,110 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:27:08,111 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:27:08,113 INFO: Dropped 0 duplicate rows
+2025-10-02 01:27:08,116 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:27:08,120 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:27:11,761 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:27:11,830 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:27:11,892 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:27:12,072 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:27:12,208 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:27:12,344 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:27:12,484 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-132\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:27:21,186 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:27:21,252 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:27:21,408 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:27:21,493 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:27:29,984 INFO: Starting model pipeline with vectorizer=tfidf, test_size=0.1
+2025-10-02 01:30:22,209 INFO: Optimized Logistic Regression: {'solver': 'liblinear', 'C': 22.300000000000004}
+2025-10-02 01:30:26,135 INFO: Optimized Decision Tree: {'splitter': 'best', 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 01:31:56,842 INFO: Optimized Random Forest: {'n_estimators': 350, 'max_depth': 5, 'criterion': 'entropy'}
+2025-10-02 01:32:00,212 INFO: Optimized K Nearest Neighbors: {'weights': 'uniform', 'n_neighbors': 10, 'algorithm': 'auto'}
+2025-10-02 01:32:00,891 INFO: Optimized Multinomial Naive Bayes: {'fit_prior': True, 'alpha': 0.30000000000000004}
+2025-10-02 01:36:28,424 INFO: Optimized Support Vector Machine: {'probability': True, 'kernel': 'rbf', 'gamma': 'scale', 'degree': 5, 'C': 33.400000000000006}
+2025-10-02 01:40:14,501 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:40:14,947 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 01:40:14,953 INFO: Dropped 4 duplicate rows
+2025-10-02 01:40:14,955 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 01:40:15,017 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:40:23,215 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 01:40:23,244 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 01:40:23,244 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 01:40:25,505 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 01:40:25,561 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 01:40:25,562 INFO: Preprocessing completed successfully
+2025-10-02 01:40:25,577 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:41:02,653 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:41:02,674 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 01:41:02,679 INFO: Dropped 4 duplicate rows
+2025-10-02 01:41:02,680 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 01:41:02,714 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:41:08,659 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 01:41:08,680 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 01:41:08,680 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 01:41:09,788 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 01:41:09,845 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 01:41:09,845 INFO: Preprocessing completed successfully
+2025-10-02 01:41:09,861 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:41:31,584 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:41:50,922 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:42:08,645 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:42:08,704 INFO: 
+Optimized model results on test set:
+2025-10-02 01:42:24,924 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:42:24,986 INFO: 
+Optimized model results on test set:
+2025-10-02 01:42:24,999 INFO: • Logistic Regression        {'Accuracy': 0.0, 'Precision': 0.0, 'Recall': 0.0, 'F1 Score': 0.0}
+2025-10-02 01:43:41,312 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:43:41,336 INFO: 
+Optimized model results on test set:
+2025-10-02 01:43:41,336 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:43:41,336 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:43:41,336 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:43:41,336 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:43:41,338 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:43:41,338 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:43:41,338 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:43:41,341 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:43:41,355 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:43:41,355 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:43:41,364 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:43:41,364 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:44:00,909 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:44:00,947 INFO: 
+Optimized model results on test set:
+2025-10-02 01:44:00,947 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:44:00,947 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:44:00,947 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:00,949 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:44:00,949 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:00,949 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:44:00,949 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:44:00,954 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:44:00,965 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:00,965 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:44:00,972 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:00,973 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:44:01,514 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014400
+2025-10-02 01:44:01,514 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014400\plots
+2025-10-02 01:44:16,644 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:44:16,664 INFO: 
+Optimized model results on test set:
+2025-10-02 01:44:16,664 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:44:16,665 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:44:16,665 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:16,665 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:44:16,665 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:16,665 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:44:16,665 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:44:16,676 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:44:16,686 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:16,686 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:44:16,695 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:16,696 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:44:16,859 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014416
+2025-10-02 01:44:16,859 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014416\plots
+2025-10-02 01:44:27,516 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:44:27,542 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 01:44:27,551 INFO: Dropped 4 duplicate rows
+2025-10-02 01:44:27,552 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 01:44:27,592 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:44:34,152 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 01:44:34,180 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 01:44:34,181 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 01:44:35,957 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 01:44:36,018 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 01:44:36,018 INFO: Preprocessing completed successfully
+2025-10-02 01:44:36,037 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:44:36,067 INFO: 
+Optimized model results on test set:
+2025-10-02 01:44:36,068 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:44:36,068 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:44:36,068 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:36,068 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:44:36,068 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:44:36,068 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:44:36,068 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:44:36,077 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:44:36,091 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:36,091 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:44:36,100 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:44:36,101 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:44:36,249 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014436
+2025-10-02 01:44:36,250 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014436\plots
+2025-10-02 01:45:16,116 INFO: Dropped 1 duplicate rows
+2025-10-02 01:45:16,127 INFO: Dropped 1 duplicate rows
+2025-10-02 01:45:16,154 INFO: Dropped 0 duplicate rows
+2025-10-02 01:45:16,155 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:45:16,156 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:16,167 INFO: Dropped 0 duplicate rows
+2025-10-02 01:45:16,169 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:45:16,172 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:16,179 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:45:16,179 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:45:16,182 INFO: Dropped 0 duplicate rows
+2025-10-02 01:45:16,183 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:45:16,185 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:16,192 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:45:16,193 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:45:16,198 INFO: Dropped 0 duplicate rows
+2025-10-02 01:45:16,199 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:45:16,200 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:16,208 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:45:16,209 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:45:16,212 INFO: Dropped 0 duplicate rows
+2025-10-02 01:45:16,215 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:45:16,215 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:20,015 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:45:20,145 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:45:20,235 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:45:20,768 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:45:21,028 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:45:21,293 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:45:21,715 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-133\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:45:39,358 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:45:39,418 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:45:39,476 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:45:39,515 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:45:39,520 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:45:39,737 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 01:45:39,742 INFO: Dropped 4 duplicate rows
+2025-10-02 01:45:39,744 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 01:45:39,774 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:45:47,087 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 01:45:47,136 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 01:45:47,137 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 01:45:50,747 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 01:45:50,817 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 01:45:50,817 INFO: Preprocessing completed successfully
+2025-10-02 01:45:50,881 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:45:51,194 INFO: 
+Optimized model results on test set:
+2025-10-02 01:45:51,195 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:45:51,195 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:45:51,195 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:45:51,196 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:45:51,196 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:45:51,196 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:45:51,196 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:45:51,207 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:45:51,263 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:45:51,263 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:45:51,275 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:45:51,275 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:45:51,765 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014550
+2025-10-02 01:45:51,765 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-014550\plots
+2025-10-02 01:51:19,091 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:51:19,183 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:51:19,238 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:51:19,431 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:51:19,594 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:51:19,762 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:51:19,967 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-134\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:51:51,311 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:51:52,148 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:51:52,261 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:51:53,120 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:51:53,644 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:51:54,182 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:51:54,536 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-135\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:51:55,368 WARNING: verified_purchase column not found in data, skipping plot
+2025-10-02 01:51:55,374 WARNING: Required columns not found in data, skipping review length plot
+2025-10-02 01:52:31,026 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:52:31,069 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:52:31,128 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:52:31,305 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:52:31,461 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:52:31,667 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:52:31,825 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-136\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:52:31,943 WARNING: verified_purchase column not found in data, skipping plot
+2025-10-02 01:52:31,952 WARNING: Required columns not found in data, skipping review length plot
+2025-10-02 01:52:48,960 INFO: Dropped 1 duplicate rows
+2025-10-02 01:52:48,969 INFO: Dropped 1 duplicate rows
+2025-10-02 01:52:48,985 INFO: Dropped 0 duplicate rows
+2025-10-02 01:52:48,986 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:52:48,987 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:52:48,993 INFO: Dropped 0 duplicate rows
+2025-10-02 01:52:48,995 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:52:48,997 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:52:49,004 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:52:49,005 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:52:49,008 INFO: Dropped 0 duplicate rows
+2025-10-02 01:52:49,010 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:52:49,014 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:52:49,027 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:52:49,028 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:52:49,036 INFO: Dropped 0 duplicate rows
+2025-10-02 01:52:49,040 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:52:49,041 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:52:49,054 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:52:49,056 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 01:52:49,058 INFO: Dropped 0 duplicate rows
+2025-10-02 01:52:49,060 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 01:52:49,063 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:52:50,707 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 01:52:50,749 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 01:52:50,804 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 01:52:51,048 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_review_length_compar0\review_length.png
+2025-10-02 01:52:51,185 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_review_length_compar1\empty_length.png
+2025-10-02 01:52:51,323 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_review_length_compar2\missing_false.png
+2025-10-02 01:52:51,465 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-137\test_plot_review_length_compar3\missing_true.png
+2025-10-02 01:52:51,565 WARNING: verified_purchase column not found in data, skipping plot
+2025-10-02 01:52:51,569 WARNING: Required columns not found in data, skipping review length plot
+2025-10-02 01:53:00,777 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:53:00,835 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:53:00,905 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:53:00,950 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 01:53:00,953 INFO: 🔹 Starting data cleaning phase
+2025-10-02 01:53:01,135 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 01:53:01,141 INFO: Dropped 4 duplicate rows
+2025-10-02 01:53:01,142 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 01:53:01,181 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 01:53:08,232 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 01:53:08,266 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 01:53:08,267 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 01:53:09,880 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 01:53:09,939 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 01:53:09,939 INFO: Preprocessing completed successfully
+2025-10-02 01:53:09,954 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 01:53:10,267 INFO: 
+Optimized model results on test set:
+2025-10-02 01:53:10,267 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 01:53:10,267 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 01:53:10,267 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:53:10,267 INFO: 
+Bagging ensembles on test set:
+2025-10-02 01:53:10,267 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 01:53:10,268 INFO: 
+Stacking ensemble on test set:
+2025-10-02 01:53:10,268 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 01:53:10,271 INFO: 
+Optimized-models DataFrame:
+2025-10-02 01:53:10,314 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:53:10,314 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 01:53:10,321 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 01:53:10,321 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 01:53:10,448 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-015309
+2025-10-02 01:53:10,448 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-015309\plots
+2025-10-02 01:54:27,500 INFO: Starting model pipeline with vectorizer=tfidf, test_size=0.2
+2025-10-02 01:57:00,419 INFO: Optimized Logistic Regression: {'solver': 'liblinear', 'C': 11.200000000000001}
+2025-10-02 01:57:02,953 INFO: Optimized Decision Tree: {'splitter': 'best', 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 01:57:48,328 INFO: Optimized Random Forest: {'n_estimators': 350, 'max_depth': 5, 'criterion': 'gini'}
+2025-10-02 01:57:50,869 INFO: Optimized K Nearest Neighbors: {'weights': 'uniform', 'n_neighbors': 6, 'algorithm': 'auto'}
+2025-10-02 01:57:51,356 INFO: Optimized Multinomial Naive Bayes: {'fit_prior': False, 'alpha': 0.6}
+2025-10-02 02:00:34,041 INFO: Optimized Support Vector Machine: {'probability': True, 'kernel': 'rbf', 'gamma': 'scale', 'degree': 5, 'C': 33.400000000000006}
+2025-10-02 02:01:57,780 INFO: Optimized Multilayer Perceptron: {'max_iter': 1000, 'hidden_layer_sizes': (2, 18), 'activation': 'tanh'}
+2025-10-02 02:01:57,783 INFO: 
+Optimized model results on test set:
+2025-10-02 02:01:57,802 INFO: • Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 02:01:57,817 INFO: • Decision Tree              {'Accuracy': 0.671875, 'Precision': 0.6748877141380818, 'Recall': 0.671875, 'F1 Score': 0.6704557714375387}
+2025-10-02 02:01:57,895 INFO: • Random Forest              {'Accuracy': 0.8125, 'Precision': 0.8196930946291558, 'Recall': 0.8125, 'F1 Score': 0.8114393463230674}
+2025-10-02 02:01:57,938 INFO: • K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 02:01:57,947 INFO: • Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 02:01:58,152 INFO: • Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 02:01:58,163 INFO: • Multilayer Perceptron      {'Accuracy': 0.859375, 'Precision': 0.8597262952101662, 'Recall': 0.859375, 'F1 Score': 0.8593406593406595}
+2025-10-02 02:02:43,472 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 02:02:43,472 INFO: • Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 02:02:43,472 INFO: • Decision Tree              {'Accuracy': 0.671875, 'Precision': 0.6748877141380818, 'Recall': 0.671875, 'F1 Score': 0.6704557714375387}
+2025-10-02 02:02:43,473 INFO: • Random Forest              {'Accuracy': 0.8125, 'Precision': 0.8196930946291558, 'Recall': 0.8125, 'F1 Score': 0.8114393463230674}
+2025-10-02 02:02:43,473 INFO: • K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 02:02:43,473 INFO: • Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 02:02:43,473 INFO: • Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 02:02:43,473 INFO: • Multilayer Perceptron      {'Accuracy': 0.859375, 'Precision': 0.8597262952101662, 'Recall': 0.859375, 'F1 Score': 0.8593406593406595}
+2025-10-02 02:02:43,474 INFO: 
+Bagging ensembles on test set:
+2025-10-02 02:02:43,474 INFO: • Logistic Regression        {'Accuracy': 0.865625, 'Precision': 0.8657535852448127, 'Recall': 0.865625, 'F1 Score': 0.8656131886591595}
+2025-10-02 02:02:43,474 INFO: • Decision Tree              {'Accuracy': 0.6875, 'Precision': 0.6876172607879926, 'Recall': 0.6875, 'F1 Score': 0.6874511642444132}
+2025-10-02 02:02:43,474 INFO: • Random Forest              {'Accuracy': 0.840625, 'Precision': 0.8406383061838355, 'Recall': 0.840625, 'F1 Score': 0.8406234435883164}
+2025-10-02 02:02:43,475 INFO: • K Nearest Neighbors        {'Accuracy': 0.771875, 'Precision': 0.782478996712529, 'Recall': 0.771875, 'F1 Score': 0.7697138181567247}
+2025-10-02 02:02:43,475 INFO: • Multinomial Naive Bayes    {'Accuracy': 0.85625, 'Precision': 0.8608165849026743, 'Recall': 0.85625, 'F1 Score': 0.8557937223245424}
+2025-10-02 02:02:43,475 INFO: • Support Vector Machine     {'Accuracy': 0.878125, 'Precision': 0.878494623655914, 'Recall': 0.878125, 'F1 Score': 0.8780952380952382}
+2025-10-02 02:02:43,475 INFO: • Multilayer Perceptron      {'Accuracy': 0.871875, 'Precision': 0.8725881570192946, 'Recall': 0.871875, 'F1 Score': 0.8718136608337975}
+2025-10-02 02:02:43,475 INFO: 
+Stacking ensemble on test set:
+2025-10-02 02:02:43,476 INFO: • Stacking                 {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 02:02:43,525 INFO: 
+Optimized-models DataFrame:
+2025-10-02 02:02:43,583 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.871875   0.872239  0.871875  0.871844
+1            Decision Tree  0.671875   0.674888  0.671875  0.670456
+2            Random Forest  0.812500   0.819693  0.812500  0.811439
+3      K Nearest Neighbors  0.787500   0.793040  0.787500  0.786491
+4  Multinomial Naive Bayes  0.853125   0.860576  0.853125  0.852362
+5   Support Vector Machine  0.871875   0.872006  0.871875  0.871864
+6    Multilayer Perceptron  0.859375   0.859726  0.859375  0.859341
+2025-10-02 02:02:43,583 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 02:02:43,589 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.865625   0.865754  0.865625  0.865613
+1            Decision Tree  0.687500   0.687617  0.687500  0.687451
+2            Random Forest  0.840625   0.840638  0.840625  0.840623
+3      K Nearest Neighbors  0.771875   0.782479  0.771875  0.769714
+4  Multinomial Naive Bayes  0.856250   0.860817  0.856250  0.855794
+5   Support Vector Machine  0.878125   0.878495  0.878125  0.878095
+6    Multilayer Perceptron  0.871875   0.872588  0.871875  0.871814
+2025-10-02 02:02:43,589 INFO: 
+Stacking ensemble result: {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 02:02:55,003 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-015427
+2025-10-02 02:02:55,004 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-015427\plots
+2025-10-02 02:02:55,008 INFO: Pipeline completed successfully!
+2025-10-02 02:05:57,285 INFO: Dropped 1 duplicate rows
+2025-10-02 02:05:57,292 INFO: Dropped 1 duplicate rows
+2025-10-02 02:05:57,309 INFO: Dropped 0 duplicate rows
+2025-10-02 02:05:57,310 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 02:05:57,314 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:05:57,321 INFO: Dropped 0 duplicate rows
+2025-10-02 02:05:57,323 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 02:05:57,323 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:05:57,330 INFO: 🔹 Starting data cleaning phase
+2025-10-02 02:05:57,331 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 02:05:57,333 INFO: Dropped 0 duplicate rows
+2025-10-02 02:05:57,335 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 02:05:57,336 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:05:57,341 INFO: 🔹 Starting data cleaning phase
+2025-10-02 02:05:57,341 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 02:05:57,343 INFO: Dropped 0 duplicate rows
+2025-10-02 02:05:57,346 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 02:05:57,348 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:05:57,353 INFO: 🔹 Starting data cleaning phase
+2025-10-02 02:05:57,354 INFO: Loaded raw data: 1 rows × 2 cols
+2025-10-02 02:05:57,356 INFO: Dropped 0 duplicate rows
+2025-10-02 02:05:57,357 INFO: Cleaned data: 1 rows × 2 cols
+2025-10-02 02:05:57,358 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:05:59,624 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_verified_purchase_di0\vp_distribution.png
+2025-10-02 02:05:59,678 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_verified_purchase_di1\empty_vp.png
+2025-10-02 02:05:59,745 INFO: Saved verified purchase distribution plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_verified_purchase_di2\single_vp.png
+2025-10-02 02:05:59,954 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_review_length_compar0\review_length.png
+2025-10-02 02:06:00,149 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_review_length_compar1\empty_length.png
+2025-10-02 02:06:00,355 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_review_length_compar2\missing_false.png
+2025-10-02 02:06:00,657 INFO: Saved review length comparison plot: C:\Users\shash\AppData\Local\Temp\pytest-of-shash\pytest-138\test_plot_review_length_compar3\missing_true.png
+2025-10-02 02:06:00,825 WARNING: verified_purchase column not found in data, skipping plot
+2025-10-02 02:06:00,833 WARNING: Required columns not found in data, skipping review length plot
+2025-10-02 02:06:10,436 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 02:06:10,468 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 02:06:10,499 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 02:06:10,530 INFO: Optimized LR: {'C': 0.5}
+2025-10-02 02:06:10,534 INFO: 🔹 Starting data cleaning phase
+2025-10-02 02:06:11,877 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 02:06:11,882 INFO: Dropped 4 duplicate rows
+2025-10-02 02:06:11,883 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 02:06:12,612 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:06:20,978 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 02:06:21,008 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 02:06:21,009 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 02:06:21,323 WARNING: WordCloud generation failed: 'TransposedFont' object has no attribute 'getbbox'. Skipping wordcloud creation.
+2025-10-02 02:06:21,967 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 02:06:21,968 INFO: Preprocessing completed successfully
+2025-10-02 02:06:22,004 INFO: Starting model pipeline with vectorizer=count, test_size=0.5
+2025-10-02 02:06:22,923 INFO: 
+Optimized model results on test set:
+2025-10-02 02:06:22,924 INFO: • Logistic Regression        {'Accuracy': 0.87}
+2025-10-02 02:06:22,924 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 02:06:22,925 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 02:06:22,925 INFO: 
+Bagging ensembles on test set:
+2025-10-02 02:06:22,925 INFO: • Logistic Regression        {'Accuracy': 0.85}
+2025-10-02 02:06:22,925 INFO: 
+Stacking ensemble on test set:
+2025-10-02 02:06:22,925 INFO: • Stacking                 {'Accuracy': 0.87}
+2025-10-02 02:06:22,951 INFO: 
+Optimized-models DataFrame:
+2025-10-02 02:06:22,969 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 02:06:22,969 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 02:06:22,988 INFO: 
+                 Model  Accuracy  Precision  Recall  F1-Score
+0  Logistic Regression      0.85       0.84    0.86      0.85
+2025-10-02 02:06:22,988 INFO: 
+Stacking ensemble result: {'Accuracy': 0.87}
+2025-10-02 02:06:23,566 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-020622
+2025-10-02 02:06:23,566 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-020622\plots
+2025-10-02 02:21:35,908 INFO: Starting model pipeline with vectorizer=tfidf, test_size=0.2
+2025-10-02 02:25:45,659 INFO: Optimized Logistic Regression: {'solver': 'liblinear', 'C': 11.200000000000001}
+2025-10-02 02:25:48,905 INFO: Optimized Decision Tree: {'splitter': 'best', 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 02:27:24,833 INFO: Optimized Random Forest: {'n_estimators': 500, 'max_depth': 5, 'criterion': 'gini'}
+2025-10-02 02:27:28,003 INFO: Optimized K Nearest Neighbors: {'weights': 'uniform', 'n_neighbors': 6, 'algorithm': 'auto'}
+2025-10-02 02:27:28,704 INFO: Optimized Multinomial Naive Bayes: {'fit_prior': False, 'alpha': 0.6}
+2025-10-02 02:35:08,581 INFO: Starting model pipeline with vectorizer=tfidf, test_size=0.2
+2025-10-02 02:37:14,631 INFO: Optimized Logistic Regression: {'solver': 'liblinear', 'C': 11.200000000000001}
+2025-10-02 02:37:15,888 INFO: Optimized Decision Tree: {'splitter': 'best', 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 02:38:03,704 INFO: Optimized Random Forest: {'n_estimators': 450, 'max_depth': 5, 'criterion': 'gini'}
+2025-10-02 02:38:06,156 INFO: Optimized K Nearest Neighbors: {'weights': 'uniform', 'n_neighbors': 6, 'algorithm': 'auto'}
+2025-10-02 02:38:07,098 INFO: Optimized Multinomial Naive Bayes: {'fit_prior': False, 'alpha': 0.6}
+2025-10-02 02:40:58,415 INFO: Optimized Support Vector Machine: {'probability': True, 'kernel': 'rbf', 'gamma': 'scale', 'degree': 5, 'C': 33.400000000000006}
+2025-10-02 02:43:26,739 INFO: Optimized Multilayer Perceptron: {'max_iter': 800, 'hidden_layer_sizes': (3, 23), 'activation': 'tanh'}
+2025-10-02 02:43:26,740 INFO: 
+Optimized model results on test set:
+2025-10-02 02:43:26,749 INFO: - Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 02:43:26,758 INFO: - Decision Tree              {'Accuracy': 0.678125, 'Precision': 0.6812472673794666, 'Recall': 0.678125, 'F1 Score': 0.676732804362538}
+2025-10-02 02:43:26,820 INFO: - Random Forest              {'Accuracy': 0.84375, 'Precision': 0.8472222222222221, 'Recall': 0.84375, 'F1 Score': 0.843358395989975}
+2025-10-02 02:43:26,853 INFO: - K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 02:43:26,860 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 02:43:27,058 INFO: - Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 02:43:27,066 INFO: - Multilayer Perceptron      {'Accuracy': 0.859375, 'Precision': 0.8605156941886438, 'Recall': 0.859375, 'F1 Score': 0.8592636753682111}
+2025-10-02 02:44:26,766 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 02:44:26,766 INFO: - Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 02:44:26,766 INFO: - Decision Tree              {'Accuracy': 0.678125, 'Precision': 0.6812472673794666, 'Recall': 0.678125, 'F1 Score': 0.676732804362538}
+2025-10-02 02:44:26,766 INFO: - Random Forest              {'Accuracy': 0.84375, 'Precision': 0.8472222222222221, 'Recall': 0.84375, 'F1 Score': 0.843358395989975}
+2025-10-02 02:44:26,767 INFO: - K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 02:44:26,767 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 02:44:26,767 INFO: - Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 02:44:26,768 INFO: - Multilayer Perceptron      {'Accuracy': 0.859375, 'Precision': 0.8605156941886438, 'Recall': 0.859375, 'F1 Score': 0.8592636753682111}
+2025-10-02 02:44:26,768 INFO: 
+Bagging ensembles on test set:
+2025-10-02 02:44:26,768 INFO: - Logistic Regression        {'Accuracy': 0.865625, 'Precision': 0.8657535852448127, 'Recall': 0.865625, 'F1 Score': 0.8656131886591595}
+2025-10-02 02:44:26,768 INFO: - Decision Tree              {'Accuracy': 0.6875, 'Precision': 0.6876172607879926, 'Recall': 0.6875, 'F1 Score': 0.6874511642444132}
+2025-10-02 02:44:26,768 INFO: - Random Forest              {'Accuracy': 0.84375, 'Precision': 0.8438037193311455, 'Recall': 0.84375, 'F1 Score': 0.843743896245947}
+2025-10-02 02:44:26,768 INFO: - K Nearest Neighbors        {'Accuracy': 0.771875, 'Precision': 0.782478996712529, 'Recall': 0.771875, 'F1 Score': 0.7697138181567247}
+2025-10-02 02:44:26,769 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.85625, 'Precision': 0.8608165849026743, 'Recall': 0.85625, 'F1 Score': 0.8557937223245424}
+2025-10-02 02:44:26,769 INFO: - Support Vector Machine     {'Accuracy': 0.878125, 'Precision': 0.878494623655914, 'Recall': 0.878125, 'F1 Score': 0.8780952380952382}
+2025-10-02 02:44:26,769 INFO: - Multilayer Perceptron      {'Accuracy': 0.871875, 'Precision': 0.8725881570192946, 'Recall': 0.871875, 'F1 Score': 0.8718136608337975}
+2025-10-02 02:44:26,769 INFO: 
+Stacking ensemble on test set:
+2025-10-02 02:44:26,769 INFO: - Stacking                 {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 02:44:26,904 INFO: 
+Optimized-models DataFrame:
+2025-10-02 02:44:27,063 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.871875   0.872239  0.871875  0.871844
+1            Decision Tree  0.678125   0.681247  0.678125  0.676733
+2            Random Forest  0.843750   0.847222  0.843750  0.843358
+3      K Nearest Neighbors  0.787500   0.793040  0.787500  0.786491
+4  Multinomial Naive Bayes  0.853125   0.860576  0.853125  0.852362
+5   Support Vector Machine  0.871875   0.872006  0.871875  0.871864
+6    Multilayer Perceptron  0.859375   0.860516  0.859375  0.859264
+2025-10-02 02:44:27,097 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 02:44:27,102 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.865625   0.865754  0.865625  0.865613
+1            Decision Tree  0.687500   0.687617  0.687500  0.687451
+2            Random Forest  0.843750   0.843804  0.843750  0.843744
+3      K Nearest Neighbors  0.771875   0.782479  0.771875  0.769714
+4  Multinomial Naive Bayes  0.856250   0.860817  0.856250  0.855794
+5   Support Vector Machine  0.878125   0.878495  0.878125  0.878095
+6    Multilayer Perceptron  0.871875   0.872588  0.871875  0.871814
+2025-10-02 02:44:27,104 INFO: 
+Stacking ensemble result: {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 02:44:40,714 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-023508
+2025-10-02 02:44:40,715 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-023508\plots
+2025-10-02 02:44:40,719 INFO: Pipeline completed successfully!
+2025-10-02 02:52:41,685 INFO: Starting Opinion Spam Detection Pipeline
+2025-10-02 02:52:41,687 INFO: Stage 1: Data Cleaning
+2025-10-02 02:52:41,687 INFO: Starting data cleaning phase
+2025-10-02 02:52:41,771 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 02:52:41,837 INFO: Dropped 4 duplicate rows
+2025-10-02 02:52:41,839 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 02:52:41,883 INFO: Data cleaning completed successfully, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 02:52:41,887 INFO: Stage 2: Data Preprocessing
+2025-10-02 02:52:44,704 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 02:52:44,731 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 02:52:44,731 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 02:52:45,998 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 02:52:46,090 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 02:52:46,095 INFO: Preprocessing completed successfully
+2025-10-02 02:52:46,127 INFO: Stage 3: Model Training and Evaluation
+2025-10-02 02:52:46,148 INFO: Starting model pipeline with vectorizer=tfidf, test_size=0.2
+2025-10-02 02:55:11,752 INFO: Optimized Logistic Regression: {'solver': 'liblinear', 'C': 11.200000000000001}
+2025-10-02 02:55:12,814 INFO: Optimized Decision Tree: {'splitter': 'best', 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 02:56:07,719 INFO: Optimized Random Forest: {'n_estimators': 450, 'max_depth': 4, 'criterion': 'gini'}
+2025-10-02 02:56:10,761 INFO: Optimized K Nearest Neighbors: {'weights': 'uniform', 'n_neighbors': 6, 'algorithm': 'auto'}
+2025-10-02 02:56:11,189 INFO: Optimized Multinomial Naive Bayes: {'fit_prior': False, 'alpha': 0.6}
+2025-10-02 02:59:35,528 INFO: Optimized Support Vector Machine: {'probability': True, 'kernel': 'rbf', 'gamma': 'scale', 'degree': 5, 'C': 33.400000000000006}
+2025-10-02 03:01:22,149 INFO: Optimized Multilayer Perceptron: {'max_iter': 1000, 'hidden_layer_sizes': (4, 12), 'activation': 'tanh'}
+2025-10-02 03:01:22,152 INFO: 
+Optimized model results on test set:
+2025-10-02 03:01:22,159 INFO: - Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 03:01:22,166 INFO: - Decision Tree              {'Accuracy': 0.66875, 'Precision': 0.672001911132346, 'Recall': 0.66875, 'F1 Score': 0.6671768907727932}
+2025-10-02 03:01:22,224 INFO: - Random Forest              {'Accuracy': 0.834375, 'Precision': 0.8391576528388605, 'Recall': 0.834375, 'F1 Score': 0.8337890414449376}
+2025-10-02 03:01:22,259 INFO: - K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 03:01:22,266 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 03:01:22,451 INFO: - Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 03:01:22,457 INFO: - Multilayer Perceptron      {'Accuracy': 0.86875, 'Precision': 0.8708359522313011, 'Recall': 0.86875, 'F1 Score': 0.8685651697699891}
+2025-10-02 03:02:11,869 INFO: 
+Optimized base classifiers on test set:
+2025-10-02 03:02:11,869 INFO: - Logistic Regression        {'Accuracy': 0.871875, 'Precision': 0.8722385141739981, 'Recall': 0.871875, 'F1 Score': 0.8718437118437119}
+2025-10-02 03:02:11,869 INFO: - Decision Tree              {'Accuracy': 0.66875, 'Precision': 0.672001911132346, 'Recall': 0.66875, 'F1 Score': 0.6671768907727932}
+2025-10-02 03:02:11,869 INFO: - Random Forest              {'Accuracy': 0.834375, 'Precision': 0.8391576528388605, 'Recall': 0.834375, 'F1 Score': 0.8337890414449376}
+2025-10-02 03:02:11,869 INFO: - K Nearest Neighbors        {'Accuracy': 0.7875, 'Precision': 0.7930402930402931, 'Recall': 0.7875, 'F1 Score': 0.7864908355900939}
+2025-10-02 03:02:11,871 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.853125, 'Precision': 0.8605759642614974, 'Recall': 0.853125, 'F1 Score': 0.8523623013418933}
+2025-10-02 03:02:11,871 INFO: - Support Vector Machine     {'Accuracy': 0.871875, 'Precision': 0.8720057832831856, 'Recall': 0.871875, 'F1 Score': 0.8718637380238498}
+2025-10-02 03:02:11,871 INFO: - Multilayer Perceptron      {'Accuracy': 0.86875, 'Precision': 0.8708359522313011, 'Recall': 0.86875, 'F1 Score': 0.8685651697699891}
+2025-10-02 03:02:11,871 INFO: 
+Bagging ensembles on test set:
+2025-10-02 03:02:11,871 INFO: - Logistic Regression        {'Accuracy': 0.865625, 'Precision': 0.8657535852448127, 'Recall': 0.865625, 'F1 Score': 0.8656131886591595}
+2025-10-02 03:02:11,871 INFO: - Decision Tree              {'Accuracy': 0.6875, 'Precision': 0.6876172607879926, 'Recall': 0.6875, 'F1 Score': 0.6874511642444132}
+2025-10-02 03:02:11,872 INFO: - Random Forest              {'Accuracy': 0.8375, 'Precision': 0.8375527426160339, 'Recall': 0.8375, 'F1 Score': 0.8374936520957851}
+2025-10-02 03:02:11,872 INFO: - K Nearest Neighbors        {'Accuracy': 0.771875, 'Precision': 0.782478996712529, 'Recall': 0.771875, 'F1 Score': 0.7697138181567247}
+2025-10-02 03:02:11,872 INFO: - Multinomial Naive Bayes    {'Accuracy': 0.85625, 'Precision': 0.8608165849026743, 'Recall': 0.85625, 'F1 Score': 0.8557937223245424}
+2025-10-02 03:02:11,872 INFO: - Support Vector Machine     {'Accuracy': 0.878125, 'Precision': 0.878494623655914, 'Recall': 0.878125, 'F1 Score': 0.8780952380952382}
+2025-10-02 03:02:11,872 INFO: - Multilayer Perceptron      {'Accuracy': 0.86875, 'Precision': 0.8696741854636592, 'Recall': 0.86875, 'F1 Score': 0.8686679174484052}
+2025-10-02 03:02:11,873 INFO: 
+Stacking ensemble on test set:
+2025-10-02 03:02:11,873 INFO: - Stacking                 {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 03:02:12,014 INFO: 
+Optimized-models DataFrame:
+2025-10-02 03:02:12,053 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.871875   0.872239  0.871875  0.871844
+1            Decision Tree  0.668750   0.672002  0.668750  0.667177
+2            Random Forest  0.834375   0.839158  0.834375  0.833789
+3      K Nearest Neighbors  0.787500   0.793040  0.787500  0.786491
+4  Multinomial Naive Bayes  0.853125   0.860576  0.853125  0.852362
+5   Support Vector Machine  0.871875   0.872006  0.871875  0.871864
+6    Multilayer Perceptron  0.868750   0.870836  0.868750  0.868565
+2025-10-02 03:02:12,053 INFO: 
+Bagging-ensembles DataFrame:
+2025-10-02 03:02:12,059 INFO: 
+                Classifier  Accuracy  Precision    Recall  F1 Score
+0      Logistic Regression  0.865625   0.865754  0.865625  0.865613
+1            Decision Tree  0.687500   0.687617  0.687500  0.687451
+2            Random Forest  0.837500   0.837553  0.837500  0.837494
+3      K Nearest Neighbors  0.771875   0.782479  0.771875  0.769714
+4  Multinomial Naive Bayes  0.856250   0.860817  0.856250  0.855794
+5   Support Vector Machine  0.878125   0.878495  0.878125  0.878095
+6    Multilayer Perceptron  0.868750   0.869674  0.868750  0.868668
+2025-10-02 03:02:12,059 INFO: 
+Stacking ensemble result: {'Accuracy': 0.88125, 'Precision': 0.8822055137844611, 'Recall': 0.88125, 'F1 Score': 0.8811757348342713}
+2025-10-02 03:02:23,635 INFO: 
+All artifacts saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-025246
+2025-10-02 03:02:23,636 INFO:    Plots saved under: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\runs\20251002-025246\plots
+2025-10-02 03:02:23,638 INFO: Pipeline completed successfully!

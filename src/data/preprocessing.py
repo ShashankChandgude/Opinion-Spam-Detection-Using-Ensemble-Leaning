@@ -82,7 +82,7 @@ class DataPreprocessor(DataProcessor):
         return df_copy
     def process(self, data: pd.DataFrame = None) -> pd.DataFrame:
         if data is None:
-            self.logger.info("🔹 Starting preprocessing")
+            self.logger.info("Starting preprocessing")
             data = self.load_cleaned_data()
         out_folder = config.get_preprocessing_dir(self.root)
         Path(out_folder).mkdir(parents=True, exist_ok=True)
@@ -93,7 +93,7 @@ class DataPreprocessor(DataProcessor):
         self.log_token_stats(final_df)
         self.create_wordcloud(final_df, out_folder, "wordcloud_after.png")
         self.save_preprocessed_data(final_df)
-        self.logger.info("✅ Preprocessing done")
+        self.logger.info("Preprocessing completed successfully")
         return final_df
 
 def pipeline() -> None:

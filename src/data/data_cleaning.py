@@ -37,7 +37,7 @@ class DataCleaner(DataProcessor):
         return df_copy
     def process(self, data: pd.DataFrame = None) -> pd.DataFrame:
         if data is None:
-            self.logger.info("🔹 Starting data cleaning phase")
+            self.logger.info("Starting data cleaning phase")
             data = self.data_loader.load()
             self.logger.info("Loaded raw data: %d rows × %d cols", data.shape[0], data.shape[1])
         cleaned = (data
@@ -49,7 +49,7 @@ class DataCleaner(DataProcessor):
         out_path = config.get_cleaned_data_path(self.root)
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         self.data_saver.save(cleaned, out_path)
-        self.logger.info("✅ Data cleaning done, saved to %s", out_path)
+        self.logger.info("Data cleaning completed successfully, saved to %s", out_path)
         return cleaned
 
 class FileDataSaver(DataSaver):

@@ -32,15 +32,19 @@ def vectorize_train_test(X_train: pd.Series, X_test: pd.Series, vectorizer_type:
         raise ValueError(f"Unknown vectorizer_type: {vectorizer_type}")
     return strategy(X_train, X_test)
 
-@lru_cache(maxsize=1)
-def load_and_vectorize_data(vectorizer_type: Optional[str] = None, test_size: Optional[float] = None, random_state: Optional[int] = None) -> Tuple[Union[CountVectorizer, TfidfVectorizer], csr_matrix, csr_matrix, pd.Series, pd.Series, pd.DataFrame]:
+def load_and_vectorize_data(preprocessed_data: Optional[pd.DataFrame] = None, vectorizer_type: Optional[str] = None, test_size: Optional[float] = None, random_state: Optional[int] = None) -> Tuple[Union[CountVectorizer, TfidfVectorizer], csr_matrix, csr_matrix, pd.Series, pd.Series, pd.DataFrame]:
     vectorizer_type = vectorizer_type or config.DEFAULT_VECTORIZER
     test_size = test_size or config.TEST_SIZE
     random_state = random_state or config.RANDOM_STATE
     
-    root = get_project_root()
-    processed_file = config.get_preprocessed_data_path(root)
-    data = load_csv_file(processed_file)
+    # Use provided preprocessed data or load from file
+    if preprocessed_data is not None:
+        data = preprocessed_data.copy()
+    else:
+        root = get_project_root()
+        processed_file = config.get_preprocessed_data_path(root)
+        data = load_csv_file(processed_file)
+    
     data = data.dropna(subset=[config.TEXT_COLUMN])
     X = data[config.TEXT_COLUMN]
     y = data[config.LABEL_COLUMN]
