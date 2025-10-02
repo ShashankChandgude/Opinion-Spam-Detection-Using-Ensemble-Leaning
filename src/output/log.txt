@@ -1,0 +1,220 @@
+2025-10-01 23:56:10,461 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-01 23:56:10,463 INFO: 📊 Stage 1: Data Cleaning
+2025-10-01 23:56:10,463 INFO: 🔹 Starting data cleaning phase
+2025-10-01 23:56:10,672 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-01 23:56:10,826 INFO: Dropped 4 duplicate rows
+2025-10-01 23:56:10,834 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-01 23:56:10,902 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-01 23:56:10,902 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-01 23:56:13,680 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-01 23:56:13,709 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-01 23:56:13,710 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-01 23:56:15,963 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-01 23:56:16,154 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-01 23:56:16,155 INFO: ✅ Preprocessing done
+2025-10-01 23:56:16,155 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:08:35,356 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:08:35,370 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:08:35,370 INFO: 🔹 Starting data cleaning phase
+2025-10-02 00:08:35,459 INFO: Loaded raw data: 1600 rows × 5 cols
+2025-10-02 00:08:35,549 INFO: Dropped 4 duplicate rows
+2025-10-02 00:08:35,550 INFO: Cleaned data: 1596 rows × 2 cols
+2025-10-02 00:08:35,587 INFO: ✅ Data cleaning done, saved to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\cleaned_data.csv
+2025-10-02 00:08:35,587 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:08:37,917 INFO: Tokenized (first 5 rows):
+0    [stay, one, night, getaway, famili, thursday, ...
+1    [tripl, rate, upgrad, view, room, less, also, ...
+2    [come, littl, late, final, catch, review, past...
+3    [omni, chicago, realli, deliv, front, spacious...
+4    [ask, high, floor, away, elev, got, room, plea...
+2025-10-02 00:08:37,940 INFO: 10 most common tokens: hotel, room, stay, chicago, would, servic, great, staff, night, one
+2025-10-02 00:08:37,940 INFO: 10 least common tokens: necessit, yahoo, firtli, sep, polka, purpl, stranger, complimentarili, pound, messili
+2025-10-02 00:08:39,232 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:08:39,284 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:08:39,284 INFO: ✅ Preprocessing done
+2025-10-02 00:08:39,284 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,208 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,208 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,208 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,208 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,209 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,215 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,215 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,215 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,253 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,254 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,261 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,262 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,262 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,262 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,263 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,273 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,273 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,273 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,274 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,274 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,282 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,282 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,283 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,283 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,284 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,297 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,298 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,298 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,298 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,298 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,312 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,313 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,313 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,314 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,314 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,325 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,325 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,325 ERROR: ❌ Pipeline failed: Data cleaning failed
+2025-10-02 00:30:51,331 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,332 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,332 ERROR: ❌ Pipeline failed: Data cleaning failed
+2025-10-02 00:30:51,341 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,341 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,341 ERROR: ❌ Pipeline failed: Data cleaning failed
+2025-10-02 00:30:51,348 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,348 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,348 ERROR: ❌ Pipeline failed: Data cleaning failed
+2025-10-02 00:30:51,357 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,357 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,357 ERROR: ❌ Pipeline failed: Data cleaning failed
+2025-10-02 00:30:51,364 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,364 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,364 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,365 ERROR: ❌ Pipeline failed: Preprocessing failed
+2025-10-02 00:30:51,374 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,374 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,374 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,374 ERROR: ❌ Pipeline failed: Preprocessing failed
+2025-10-02 00:30:51,379 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,380 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,380 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,380 ERROR: ❌ Pipeline failed: Preprocessing failed
+2025-10-02 00:30:51,389 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,390 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,390 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,390 ERROR: ❌ Pipeline failed: Preprocessing failed
+2025-10-02 00:30:51,396 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,397 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,397 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,397 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,397 ERROR: ❌ Pipeline failed: Model training failed
+2025-10-02 00:30:51,407 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,407 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,407 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,408 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,408 ERROR: ❌ Pipeline failed: Model training failed
+2025-10-02 00:30:51,415 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,417 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,418 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,419 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,420 ERROR: ❌ Pipeline failed: Model training failed
+2025-10-02 00:30:51,428 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,428 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,428 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,429 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,429 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,438 INFO: 🚀 Starting Opinion Spam Detection Pipeline
+2025-10-02 00:30:51,438 INFO: 📊 Stage 1: Data Cleaning
+2025-10-02 00:30:51,438 INFO: 🔧 Stage 2: Data Preprocessing
+2025-10-02 00:30:51,438 INFO: 🤖 Stage 3: Model Training and Evaluation
+2025-10-02 00:30:51,439 INFO: ✅ Pipeline completed successfully!
+2025-10-02 00:30:51,460 INFO: Loaded cleaned data: 3 rows × 2 cols
+2025-10-02 00:30:51,463 INFO: Loaded cleaned data: 3 rows × 2 cols
+2025-10-02 00:30:51,466 INFO: Loaded cleaned data: 3 rows × 2 cols
+2025-10-02 00:30:51,473 INFO: Loaded cleaned data: 3 rows × 2 cols
+2025-10-02 00:30:51,478 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:51,661 INFO: Tokenized (first 5 rows):
+0         [Hello, world]
+1    [This, is, a, test]
+2025-10-02 00:30:51,665 INFO: Tokenized (first 5 rows):
+0         [Hello, world]
+1    [This, is, a, test]
+2025-10-02 00:30:51,670 INFO: Tokenized (first 5 rows):
+0         [Hello, world]
+1    [This, is, a, test]
+2025-10-02 00:30:51,675 INFO: 🔹 Starting preprocessing
+2025-10-02 00:30:51,675 INFO: Loaded cleaned data: 2 rows × 2 cols
+2025-10-02 00:30:51,680 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:51,680 INFO: 10 most common tokens: text
+2025-10-02 00:30:51,680 INFO: 10 least common tokens: text
+2025-10-02 00:30:52,399 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:52,400 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:52,400 INFO: ✅ Preprocessing done
+2025-10-02 00:30:52,405 INFO: 🔹 Starting preprocessing
+2025-10-02 00:30:52,405 INFO: Loaded cleaned data: 2 rows × 2 cols
+2025-10-02 00:30:52,410 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:52,411 INFO: 10 most common tokens: text
+2025-10-02 00:30:52,411 INFO: 10 least common tokens: text
+2025-10-02 00:30:52,565 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:52,566 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:52,566 INFO: ✅ Preprocessing done
+2025-10-02 00:30:52,570 INFO: 🔹 Starting preprocessing
+2025-10-02 00:30:52,570 INFO: Loaded cleaned data: 2 rows × 2 cols
+2025-10-02 00:30:52,575 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:52,577 INFO: 10 most common tokens: text
+2025-10-02 00:30:52,577 INFO: 10 least common tokens: text
+2025-10-02 00:30:52,738 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:52,738 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:52,739 INFO: ✅ Preprocessing done
+2025-10-02 00:30:52,744 INFO: 🔹 Starting preprocessing
+2025-10-02 00:30:52,744 INFO: Loaded cleaned data: 2 rows × 2 cols
+2025-10-02 00:30:52,749 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:52,750 INFO: 10 most common tokens: text
+2025-10-02 00:30:52,750 INFO: 10 least common tokens: text
+2025-10-02 00:30:52,901 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:52,901 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:52,901 INFO: ✅ Preprocessing done
+2025-10-02 00:30:52,909 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:52,910 INFO: 10 most common tokens: text
+2025-10-02 00:30:52,910 INFO: 10 least common tokens: text
+2025-10-02 00:30:53,063 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:53,064 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:53,064 INFO: ✅ Preprocessing done
+2025-10-02 00:30:53,072 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:53,073 INFO: 10 most common tokens: text
+2025-10-02 00:30:53,073 INFO: 10 least common tokens: text
+2025-10-02 00:30:53,223 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:53,224 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:53,224 INFO: ✅ Preprocessing done
+2025-10-02 00:30:53,233 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:53,234 INFO: 10 most common tokens: text
+2025-10-02 00:30:53,234 INFO: 10 least common tokens: text
+2025-10-02 00:30:53,388 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:53,388 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:53,388 INFO: ✅ Preprocessing done
+2025-10-02 00:30:53,396 INFO: Tokenized (first 5 rows):
+0    [text]
+1    [text]
+2025-10-02 00:30:53,397 INFO: 10 most common tokens: text
+2025-10-02 00:30:53,397 INFO: 10 least common tokens: text
+2025-10-02 00:30:53,550 INFO: Saved wordcloud: D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\output\data_preprocessing\wordcloud_after.png
+2025-10-02 00:30:53,550 INFO: Saved preprocessed data to D:\Study material\Masters UH\Spring 2024\ML\Project\Git_Repo\Opinion-Spam-Detection-Using-Ensemble-Leaning\data/processed\preprocessed_data.csv
+2025-10-02 00:30:53,550 INFO: ✅ Preprocessing done
+2025-10-02 00:30:53,557 INFO: Saved wordcloud: test_folder\test_wordcloud.png
+2025-10-02 00:30:53,564 INFO: Saved wordcloud: test_folder\test_wordcloud.png
+2025-10-02 00:30:53,567 WARNING: WordCloud generation failed: Save error. Skipping wordcloud creation.

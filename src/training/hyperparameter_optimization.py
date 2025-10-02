@@ -1,6 +1,7 @@
 import numpy as np
 import random
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
+from sklearn.metrics import make_scorer, f1_score
 from src.utils.config import config
 from src.utils.logging_config import get_logger
 
@@ -51,7 +52,7 @@ def optimize_hyperparameters(classifier_name: str, classifier_class, hyperparams
         estimator=classifier_class(),
         param_distributions=hyperparams,
         n_iter=n_iter,
-        scoring='accuracy',
+        scoring=make_scorer(f1_score, average='weighted'),
         cv=cv,
         random_state=config.RANDOM_STATE,
         n_jobs=-1

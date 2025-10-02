@@ -1,0 +1,47 @@
+{
+  "Logistic Regression": {
+    "Accuracy": 0.0007836990595611049
+  },
+  "Decision Tree": {
+    "Accuracy": 0.22178683385579934
+  },
+  "Random Forest": {
+    "Accuracy": 0.048589341692789945
+  },
+  "K Nearest Neighbors": {
+    "Accuracy": 0.1308777429467085
+  },
+  "Multinomial Naive Bayes": {
+    "Accuracy": 0.03683385579937304
+  },
+  "Support Vector Machine": {
+    "Accuracy": 0.0
+  },
+  "Multilayer Perceptron": {
+    "Accuracy": 0.0
+  },
+  "Logistic Regression (Bagging)": {
+    "Accuracy": 0.00783699059561127
+  },
+  "Decision Tree (Bagging)": {
+    "Accuracy": 0.20141065830721006
+  },
+  "Random Forest (Bagging)": {
+    "Accuracy": 0.05877742946708464
+  },
+  "K Nearest Neighbors (Bagging)": {
+    "Accuracy": 0.14968652037617558
+  },
+  "Multinomial Naive Bayes (Bagging)": {
+    "Accuracy": 0.03840125391849525
+  },
+  "Support Vector Machine (Bagging)": {
+    "Accuracy": 0.0015673981191222097
+  },
+  "Multilayer Perceptron (Bagging)": {
+    "Accuracy": 0.0031347962382445305
+  },
+  "Stacking": {
+    "Accuracy": 0.0
+  }
+}

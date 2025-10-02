@@ -10,6 +10,7 @@ from src.utils.logging_config import get_logger
 from src.data.data_cleaning import DataCleaner
 from src.data.preprocessing import DataPreprocessor
 from src.pipeline import ModelPipeline
+from src.utils.logging_config import get_logger, setup_logging
 
 class PipelineOrchestrator(IPipelineOrchestrator):
     def __init__(self):
@@ -24,6 +25,7 @@ class PipelineOrchestrator(IPipelineOrchestrator):
         return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     def run(self, **kwargs) -> Dict[str, Any]:
+        setup_logging(config.get_log_file_path(self._get_project_root()))
         self.logger.info("🚀 Starting Opinion Spam Detection Pipeline")
         try:
             self.logger.info("📊 Stage 1: Data Cleaning")

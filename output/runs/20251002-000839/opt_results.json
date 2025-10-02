@@ -1,0 +1,44 @@
+{
+  "Logistic Regression": {
+    "Accuracy": 0.871875,
+    "Precision": 0.8722385141739981,
+    "Recall": 0.871875,
+    "F1 Score": 0.8718437118437119
+  },
+  "Decision Tree": {
+    "Accuracy": 0.675,
+    "Precision": 0.6777777777777778,
+    "Recall": 0.675,
+    "F1 Score": 0.6737254901960784
+  },
+  "Random Forest": {
+    "Accuracy": 0.834375,
+    "Precision": 0.8391576528388605,
+    "Recall": 0.834375,
+    "F1 Score": 0.8337890414449376
+  },
+  "K Nearest Neighbors": {
+    "Accuracy": 0.7875,
+    "Precision": 0.7930402930402931,
+    "Recall": 0.7875,
+    "F1 Score": 0.7864908355900939
+  },
+  "Multinomial Naive Bayes": {
+    "Accuracy": 0.853125,
+    "Precision": 0.8605759642614974,
+    "Recall": 0.853125,
+    "F1 Score": 0.8523623013418933
+  },
+  "Support Vector Machine": {
+    "Accuracy": 0.871875,
+    "Precision": 0.8720057832831856,
+    "Recall": 0.871875,
+    "F1 Score": 0.8718637380238498
+  },
+  "Multilayer Perceptron": {
+    "Accuracy": 0.86875,
+    "Precision": 0.8708359522313011,
+    "Recall": 0.86875,
+    "F1 Score": 0.8685651697699891
+  }
+}

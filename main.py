@@ -27,14 +27,10 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
-    """Main entry point - Single Responsibility: Orchestration."""
-    # Parse arguments
     args = parse_arguments()
     
-    # Setup logging
     setup_logging()
-    
-    # Create and run pipeline orchestrator
+        
     orchestrator = PipelineOrchestrator()
     results = orchestrator.run(
         vectorizer_type=args.vectorizer,

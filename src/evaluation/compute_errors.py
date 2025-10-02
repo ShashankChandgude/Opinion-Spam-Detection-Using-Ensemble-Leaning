@@ -1,7 +1,12 @@
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import confusion_matrix
 
-def compute_errors(best_models: dict, bagging_ensembles: dict = None, stacking_ensemble= None, X_train=None, X_test=None, y_train=None, y_test=None, metrics: dict = None):
+def compute_errors(best_models: dict, 
+                   bagging_ensembles: dict = None, 
+                   stacking_ensemble=None,
+                   X_train=None, X_test=None,
+                   y_train=None, y_test=None,
+                   metrics: dict = None):
     if metrics is None:
         metrics = {'Accuracy': accuracy_score}
     

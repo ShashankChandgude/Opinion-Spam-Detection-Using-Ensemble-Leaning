@@ -54,5 +54,8 @@ class Config:
     
     def get_log_file_path(self, root: str) -> str:
         return os.path.join(root, self.LOG_FILE)
+    
+    def get_results_dir(self, root: str) -> str:
+        return os.path.join(root, self.OUTPUT_DIR, "runs")
 
 config = Config() 
