@@ -22,25 +22,25 @@ class PipelineOrchestrator(IPipelineOrchestrator):
     
     @lru_cache(maxsize=1)
     def _get_project_root(self) -> str:
-        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     
     def run(self, **kwargs) -> Dict[str, Any]:
         setup_logging(config.get_log_file_path(self._get_project_root()))
-        self.logger.info("🚀 Starting Opinion Spam Detection Pipeline")
+        self.logger.info("Starting Opinion Spam Detection Pipeline")
         try:
-            self.logger.info("📊 Stage 1: Data Cleaning")
+            self.logger.info("Stage 1: Data Cleaning")
             cleaned_data = self.data_cleaner.process()
             
-            self.logger.info("🔧 Stage 2: Data Preprocessing")
+            self.logger.info("Stage 2: Data Preprocessing")
             preprocessed_data = self.data_preprocessor.process(cleaned_data)
             
-            self.logger.info("🤖 Stage 3: Model Training and Evaluation")
+            self.logger.info("Stage 3: Model Training and Evaluation")
             model_results = self.model_pipeline.run(
                 preprocessed_data=preprocessed_data,
                 **kwargs
             )
             
-            self.logger.info("✅ Pipeline completed successfully!")
+            self.logger.info("Pipeline completed successfully!")
             return {
                 'cleaned_data': cleaned_data,
                 'preprocessed_data': preprocessed_data,
@@ -48,7 +48,7 @@ class PipelineOrchestrator(IPipelineOrchestrator):
                 'status': 'success'
             }
         except Exception as e:
-            self.logger.error(f"❌ Pipeline failed: {str(e)}")
+            self.logger.error(f"Pipeline failed: {str(e)}")
             return {
                 'status': 'error',
                 'error': str(e)

@@ -1,117 +1,29 @@
-# Opinion-Spam-Detection-Using-Ensemble-Leaning
+# Opinion Spam Detection Using Ensemble Learning
 
 ## Introduction
 
-In today's digital marketplace, customer reviews significantly influence business reputation. However, fake reviews can distort consumer perceptions and lead to poor decision making. This project addresses the challenge of detecting deceptive reviews by leveraging ensemble learning methods. While traditional methods such as SVMs have been popular, modern ensemble techniques—specifically bagging and stacking—have shown improved performance by combining the strengths of multiple classifiers.
+This project implements a machine learning pipeline for detecting deceptive reviews using ensemble learning methods. The system combines multiple base classifiers through bagging and stacking techniques to improve classification performance.
 
-This project uses a variety of base classifiers (including Logistic Regression, Decision Trees, Random Forest, K-Nearest Neighbors, Multinomial Naive Bayes, Support Vector Machine, and Multilayer Perceptron) and integrates them into ensemble models. In our updated implementation:
+The pipeline processes text data through cleaning, preprocessing, feature engineering, and model training stages, with comprehensive logging and experiment tracking throughout.
 
-- **Bagging** is applied to each base classifier to reduce variance.
-- **Stacking** combines all optimized base models using a meta-estimator (defaulting to Logistic Regression) to produce a robust final prediction.
+## Dataset
 
-Every major step is logged to `output/log.txt` using a dedicated logger module, and all visualizations and results are saved in timestamped run directories under `output/runs/` for complete experiment tracking and reproducibility.
+**Deceptive Opinion Corpus**
+- **Source**: [Deceptive Opinion Spam Dataset](https://www.cs.cornell.edu/~llee/deceptive-opinion-spam/)
+- **Size**: 1,600 reviews (800 deceptive, 800 truthful)
+- **Format**: CSV with hotel review text and labels
+- **Usage**: Place the dataset file as `data/raw/deceptive-opinion-corpus.csv`
+
+To obtain the dataset:
+1. Visit the Cornell University research page linked above
+2. Download the deceptive opinion spam corpus
+3. Extract and place the CSV file in the `data/raw/` directory
+4. Ensure the file is named `deceptive-opinion-corpus.csv`
 
 ## Project Structure
 
-The project is organized into distinct modules that adhere to SOLID principles:
-
-### Data Processing
-- **src/data/data_cleaning.py:**  
-  Contains the pipeline for cleaning raw data and performing exploratory analysis. The cleaned data is saved to `data/processed/cleaned_data.csv`.
-
-- **src/data/preprocessing.py:**  
-  Performs text preprocessing steps (e.g., removal of special characters, stopwords, punctuation, and stemming) on the cleaned data.
-
-- **src/data/load_data.py:**  
-  Handles data loading operations with proper error handling and validation.
-
-- **src/data/data_io.py:**  
-  Provides data input/output utilities and file operations.
-
-### Feature Engineering
-- **src/features/vectorization.py:**  
-  Loads the processed data, ensures there are no missing values in the text, splits it into training and test sets, and vectorizes the text using either CountVectorizer or TF-IDF.
-
-### Model Training
-- **src/training/cross_validation.py:**  
-  Implements K-fold cross-validation on the training set and provides functions for plotting performance metrics (accuracy, precision, recall, F1 score).
-
-- **src/training/hyperparameter_optimization.py:**  
-  Contains functions to perform randomized hyperparameter search with K-fold cross-validation. It also includes hyperparameter configuration dictionaries for each classifier.
-
-- **src/training/model_training.py:**  
-  Defines the base classifiers and provides two separate functions for ensemble training:  
-  - `train_bagging_ensemble`: Trains a bagging ensemble for each base classifier.
-  - `train_stacking_ensemble`: Creates a stacking ensemble by combining all optimized base models.  
-  The `train_all_ensembles` function trains bagging ensembles for all classifiers and a single stacking ensemble.
-
-- **src/training/classifier_config.py:**  
-  Manages classifier configurations and provides a registry system for easy classifier management.
-
-### Evaluation
-- **src/evaluation/evaluation.py:**  
-  Contains functions for calculating evaluation metrics (accuracy, precision, recall, F1 score) for individual models and sets of models.
-
-- **src/evaluation/evaluation_visualization.py:**  
-  Combines plotting and reporting functionality. It includes functions for plotting error curves and converting evaluation results into pandas DataFrames.
-
-- **src/evaluation/compute_errors.py:**  
-  Provides a function to compute train and test errors for both optimized models and bagging ensembles.
-
-### Utilities
-- **src/utils/config.py:**  
-  Centralized configuration management with dataclass-based settings.
-
-- **src/utils/helpers.py:**  
-  Contains common imports, utility functions (e.g., `get_project_root()`), and plotting utilities.
-
-- **src/utils/logging.py:**  
-  Centralized logging configuration with file and console handlers.
-
-- **src/utils/logging_config.py:**  
-  Advanced logging configuration options and utilities.
-
-- **src/utils/interfaces.py:**  
-  Defines abstract base classes and interfaces for the system.
-
-- **src/utils/pipeline_orchestrator.py:**  
-  Orchestrates the entire pipeline execution with proper error handling.
-
-- **src/utils/json_utils.py:**  
-  Provides JSON serialization utilities for saving complex data structures.
-
-### Main Application
-- **main.py:**  
-  Orchestrates the entire pipeline:
-  - Runs the data cleaning and preprocessing pipelines.
-  - Loads and vectorizes the processed data.
-  - Performs cross-validation.
-  - Optimizes hyperparameters.
-  - Trains bagging ensembles for each classifier and a stacking ensemble that combines all optimized models.
-  - Evaluates each model and ensemble.
-  - Computes and plots error curves.
-  - Saves all results, visualizations, and metadata in timestamped run directories.
-
-## Experiment Tracking and Results Management
-
-- **Comprehensive Logging:**  
-  Every major step and output is logged to `output/log.txt` via the centralized logging module. This ensures that the pipeline execution is traceable and debuggable.
-
-- **Timestamped Run Management:**  
-  Each pipeline execution creates a unique timestamped directory under `output/runs/` (e.g., `20251002-000839/`) containing:
-  - **Performance Metrics**: CSV and JSON files with detailed results for all models
-  - **Visualizations**: Cross-validation plots, error curves, and confusion matrices
-  - **Model Artifacts**: Best hyperparameters, predictions, and classification reports
-  - **Run Manifest**: Complete metadata including data checksums and configuration
-  - **Reproducibility**: Full experiment tracking for complete reproducibility
-
-- **Data Integrity:**  
-  Each run includes SHA256 checksums of input data to ensure experiment reproducibility and data integrity verification.
-
-## Current Project Structure
-
 ```
-Opinion-Spam-Detection-Using-Ensemble-Leaning/
+Opinion-Spam-Detection-Using-Ensemble-Learning/
 ├── main.py                          # Main application entry point
 ├── pavement.py                      # Build automation and task runner
 ├── pytest.ini                       # Test configuration
@@ -120,7 +32,7 @@ Opinion-Spam-Detection-Using-Ensemble-Leaning/
 ├── README.md                        # This documentation
 ├── data/
 │   ├── raw/
-│   │   └── deceptive-opinion-corpus.csv  # Original dataset
+│   │   └── deceptive-opinion-corpus.csv  # Original dataset (user-provided)
 │   └── processed/
 │       ├── cleaned_data.csv         # Cleaned dataset
 │       └── preprocessed_data.csv     # Preprocessed dataset
@@ -131,93 +43,105 @@ Opinion-Spam-Detection-Using-Ensemble-Leaning/
 │   ├── training/                    # Model training modules
 │   ├── utils/                       # Utility modules
 │   └── pipeline.py                  # Main ML pipeline
-├── tests/                           # Comprehensive test suite
+├── tests/                           # Test suite
 └── output/
     ├── log.txt                      # Main execution log
     ├── data_preprocessing/          # Preprocessing visualizations
     └── runs/                        # Timestamped experiment results
-        └── 20251002-000839/         # Latest run artifacts
+        └── 20251002-025246/         # Latest complete run
             ├── plots/               # Visualizations
             ├── *.csv                # Performance metrics
             ├── *.json               # Structured results
             └── run_manifest.json    # Run metadata
 ```
 
-## How to Run
+## Architecture
+
+### Data Processing Pipeline
+- **Data Cleaning**: Removes duplicates, handles missing values, basic validation
+- **Text Preprocessing**: Tokenization, stopword removal, stemming, special character handling
+- **Feature Engineering**: TF-IDF vectorization with configurable parameters
+
+### Model Training
+- **Base Classifiers**: Logistic Regression, Decision Trees, Random Forest, K-NN, Naive Bayes, SVM, MLP
+- **Ensemble Methods**: 
+  - Bagging: Applied to each base classifier
+  - Stacking: Meta-learner combining all optimized models
+- **Hyperparameter Optimization**: Randomized search with cross-validation
+
+### Evaluation
+- **Cross-validation**: 5-fold stratified validation
+- **Metrics**: Accuracy, Precision, Recall, F1-Score
+- **Visualization**: Confusion matrices, error curves, performance plots
+
+## Installation and Usage
 
 ### Prerequisites
-1. **Install Dependencies:**  
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-2. **Development Dependencies (Optional):**  
-   ```bash
-   pip install -r dev-requirements.txt
-   ```
+### Running the Pipeline
+```bash
+# Full pipeline execution
+paver run
 
-### Running the Application
-1. **Execute the Pipeline:**  
-   ```bash
-   paver run
-   ```
-   or
-   ```bash
-   python main.py --vectorizer tfidf --test-size 0.2
-   ```
-
-2. **Run Tests:**  
-   ```bash
-   paver test
-   ```
+# Direct execution with options
+python main.py --vectorizer tfidf --test-size 0.2 --random-state 42
+```
 
 ### Command Line Options
-- `--vectorizer`: Choose between 'count' or 'tfidf' (default: 'tfidf')
+- `--vectorizer`: Choose 'count' or 'tfidf' (default: 'tfidf')
 - `--test-size`: Test set size as fraction (default: 0.2)
 - `--random-state`: Random seed for reproducibility (default: 42)
 
-## Recent Improvements
+### Running Tests
+```bash
+paver test
+```
 
-### Professional Experiment Management
-- **Timestamped Run Tracking**: Each pipeline execution creates a unique timestamped directory with complete experiment metadata
-- **Comprehensive Artifact Management**: All results, visualizations, and model artifacts are systematically saved and organized
-- **Data Integrity Verification**: SHA256 checksums ensure experiment reproducibility and data integrity
-- **Professional Output Structure**: Clean, organized output management suitable for production environments
+## Results
 
-### Code Quality Enhancements
-- **Test Suite Refactoring**: All 361 tests now follow SOLID principles with focused, single-purpose test functions
-- **Improved Maintainability**: Each test function has only one or two assertions for better debugging
-- **Clean Code**: Removed unnecessary comments and docstrings following minimal code style preferences
-- **Bug Fixes**: Resolved critical logging configuration issues and import errors
-- **Project Cleanup**: Removed unused files and directories for a cleaner, more professional structure
-
-### Performance Results
-The system achieves excellent performance with ensemble methods (latest run: 2025-10-02):
+### Latest Run Performance (2025-10-02-025246)
 
 | Model Type | Accuracy | Precision | Recall | F1-Score |
 |------------|----------|-----------|--------|----------|
-| **Stacking Ensemble** | **87.81%** | **87.93%** | **87.81%** | **87.80%** |
+| **Stacking Ensemble** | **88.13%** | **88.22%** | **88.13%** | **88.12%** |
 | Support Vector Machine | 87.19% | 87.20% | 87.19% | 87.19% |
 | Logistic Regression | 87.19% | 87.22% | 87.19% | 87.18% |
-| Multilayer Perceptron | 86.88% | 87.08% | 86.88% | 86.86% |
-| Random Forest | 83.44% | 83.92% | 83.44% | 83.38% |
+| Multilayer Perceptron | 85.94% | 86.05% | 85.94% | 85.93% |
+| Random Forest | 84.38% | 84.38% | 84.38% | 84.37% |
 | Multinomial Naive Bayes | 85.31% | 86.06% | 85.31% | 85.24% |
 | K-Nearest Neighbors | 78.75% | 79.30% | 78.75% | 78.65% |
-| Decision Tree | 67.50% | 67.78% | 67.50% | 67.37% |
+| Decision Tree | 67.81% | 68.12% | 67.81% | 67.68% |
 
-### Code Coverage
-- **94% Code Coverage** achieved across all modules
-- **361 Tests Passing** with comprehensive test coverage
-- **Zero Critical Issues** in the codebase
+### Experiment Tracking
+- **Timestamped Runs**: Each execution creates a unique directory under `output/runs/`
+- **Comprehensive Logging**: All operations logged to `output/log.txt`
+- **Artifact Management**: Models, metrics, and visualizations saved systematically
+- **Reproducibility**: SHA256 checksums and run manifests for experiment tracking
+
+## Technical Details
+
+### Test Coverage
+- **Overall Coverage**: 97% (673 statements, 20 missing)
+- **Test Count**: 383 tests
+- **Execution Time**: ~32 seconds for full test suite
+- **Integration Tests**: Comprehensive mocking for fast CI/CD pipelines
+
+### Dependencies
+- **Core ML**: scikit-learn, numpy, pandas
+- **Text Processing**: NLTK, wordcloud
+- **Visualization**: matplotlib, seaborn
+- **Testing**: pytest, pytest-cov
+- **Build**: paver
 
 ## Project Status
 
-✅ **Fully Functional**: All components working correctly  
-✅ **Well Tested**: Comprehensive test suite with 94% coverage  
-✅ **Production Ready**: Robust error handling, logging, and experiment tracking  
-✅ **Maintainable**: Clean, modular code following SOLID principles  
-✅ **Professional Grade**: Complete experiment management with timestamped runs and artifact tracking  
-✅ **Employer Ready**: Clean structure, comprehensive documentation, and proven performance  
+- **Functional**: All components working correctly  
+- **Tested**: Comprehensive test suite with 97% coverage  
+- **Documented**: Clear structure and usage instructions  
+- **Reproducible**: Consistent results with proper experiment tracking  
 
 ## Contributing
 
@@ -226,3 +150,7 @@ The system achieves excellent performance with ensemble methods (latest run: 202
 3. Make your changes
 4. Ensure all tests pass (`paver test`)
 5. Submit a pull request
+
+## License
+
+This project is for educational and research purposes. Please ensure you have proper rights to use the dataset according to its original terms.
