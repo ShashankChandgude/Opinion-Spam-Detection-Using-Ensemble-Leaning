@@ -101,4 +101,4 @@ def pipeline() -> None:
     preprocessor.process()
 
 if __name__ == "__main__":
-    pipeline()
+    pipeline() # pragma: no cover

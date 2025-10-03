@@ -1,5 +1,6 @@
 import pytest
 import pandas as pd
+import os
 from unittest.mock import Mock, patch, MagicMock
 from src.utils.pipeline_orchestrator import PipelineOrchestrator
 
@@ -402,4 +403,5 @@ class TestPipelineOrchestrator:
     def test_get_project_root_content(self):
         orchestrator = PipelineOrchestrator()
         root = orchestrator._get_project_root()
-        assert 'src' in root or 'utils' in root 
+        # Check that the root directory contains the src directory
+        assert os.path.exists(os.path.join(root, 'src')) 
